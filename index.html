@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>See Panel Button</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f2f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .see-panel-btn {
+      padding: 12px 24px;
+      font-size: 18px;
+      color: white;
+      background: #007bff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .see-panel-btn:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <button class="see-panel-btn" onclick="goToPanel()">SEE PANEL</button>
+
+  <script>
+    function goToPanel() {
+      // Change this link to the page you want
+      window.location.href = "./Dashboard.html"; 
+    }
+  </script>
+
+</body>
+</html>

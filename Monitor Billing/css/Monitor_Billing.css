@@ -1,0 +1,2936 @@
+/* ============================================= */
+/* BILLING AUTOMATION MONITORING DASHBOARD CSS   */
+/* ============================================= */
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #8b5cf6;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --info-color: #3b82f6;
+    --bg-color: #f8fafc;
+    --card-color: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --step-width: 100px;
+    --manual-color: #8b5cf6;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+
+#billingDashboard * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+#billingDashboard {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+#billingDashboard .container-fluid {
+    max-width: 100%;
+    padding: 20px;
+}
+
+/* Header */
+#billingDashboard .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+#billingDashboard .header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#billingDashboard .header h1 i {
+    color: var(--primary-color);
+}
+
+#billingDashboard .header-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Global Controls */
+#billingDashboard .global-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: var(--card-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+#billingDashboard .control-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+    font-size: 14px;
+    min-width: 140px;
+    justify-content: center;
+}
+
+#billingDashboard .control-btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#billingDashboard .control-btn.secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+#billingDashboard .control-btn.success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+#billingDashboard .control-btn.warning {
+    background-color: var(--warning-color);
+    color: white;
+}
+
+#billingDashboard .control-btn.danger {
+    background-color: var(--error-color);
+    color: white;
+}
+
+#billingDashboard .control-btn.info {
+    background-color: var(--info-color);
+    color: white;
+}
+
+#billingDashboard .control-btn.manual {
+    background-color: var(--manual-color);
+    color: white;
+}
+
+#billingDashboard .control-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+#billingDashboard .filter-group {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-left: auto;
+}
+
+#billingDashboard select, 
+#billingDashboard input[type="search"] {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    min-width: 180px;
+}
+
+/* Enhanced filter group with icons */
+#billingDashboard .filter-group.enhanced {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 12px;
+    background: var(--card-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 20px;
+}
+
+#billingDashboard .filter-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 180px;
+}
+
+#billingDashboard .filter-with-icon i {
+    position: absolute;
+    left: 12px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    z-index: 2;
+}
+
+#billingDashboard .filter-with-icon select,
+#billingDashboard .filter-with-icon input[type="search"] {
+    padding: 10px 12px 10px 36px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: white;
+    width: 100%;
+    transition: all 0.2s;
+    color: var(--text-primary);
+}
+
+#billingDashboard .filter-with-icon select:hover,
+#billingDashboard .filter-with-icon input[type="search"]:hover {
+    border-color: var(--primary-color);
+}
+
+#billingDashboard .filter-with-icon select:focus,
+#billingDashboard .filter-with-icon input[type="search"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Step Tracker */
+#billingDashboard .step-tracker-container {
+    background: var(--card-color);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-md);
+    overflow-x: auto;
+}
+
+#billingDashboard .step-tracker {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    min-width: 1100px;
+}
+
+#billingDashboard .step-tracker::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    right: 50px;
+    height: 3px;
+    background: var(--border-color);
+    z-index: 1;
+}
+
+#billingDashboard .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: var(--step-width);
+}
+
+#billingDashboard .step:hover {
+    transform: translateY(-5px);
+}
+
+#billingDashboard .step.active {
+    transform: scale(1.05);
+}
+
+#billingDashboard .step.requires-manual .step-icon {
+    border-style: dashed;
+    border-color: var(--manual-color);
+}
+
+#billingDashboard .step-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 12px;
+    background: white;
+    border: 3px solid var(--border-color);
+    color: var(--text-secondary);
+    transition: all 0.3s;
+    position: relative;
+}
+
+#billingDashboard .step.active .step-icon {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+#billingDashboard .step.completed .step-icon {
+    border-color: var(--success-color);
+    background-color: var(--success-color);
+    color: white;
+}
+
+#billingDashboard .step.failed .step-icon {
+    border-color: var(--error-color);
+    background-color: var(--error-color);
+    color: white;
+}
+
+#billingDashboard .step-manual-indicator {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--manual-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: white;
+    border: 2px solid white;
+    z-index: 3;
+}
+
+#billingDashboard .step-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 6px;
+    color: var(--text-secondary);
+}
+
+#billingDashboard .step.active .step-label {
+    color: var(--primary-color);
+}
+
+#billingDashboard .step-status {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#billingDashboard .step-status.pending {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+#billingDashboard .step-status.in-progress {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+#billingDashboard .step-status.completed {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+#billingDashboard .step-status.failed {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+#billingDashboard .step-status.manual-pending {
+    background-color: #f3e8ff;
+    color: #7c3aed;
+}
+
+#billingDashboard .step-status.manual-in-progress {
+    background-color: #ede9fe;
+    color: #5b21b6;
+}
+
+/* Main Content */
+#billingDashboard .main-content {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 24px;
+}
+
+/* Management Table */
+#billingDashboard .management-table-container {
+    background: var(--card-color);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--shadow-md);
+    overflow-x: auto;
+    position: relative;
+}
+
+#billingDashboard .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#billingDashboard .table-title {
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#billingDashboard .table-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Table Filters in Management Table */
+#billingDashboard .table-filters {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+#billingDashboard .table-filters .filter-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 180px;
+}
+
+#billingDashboard .table-filters .filter-with-icon i {
+    position: absolute;
+    left: 10px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    z-index: 2;
+}
+
+#billingDashboard .table-filters .filter-with-icon select,
+#billingDashboard .table-filters .filter-with-icon input {
+    padding: 8px 10px 8px 32px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 13px;
+    background-color: white;
+    width: 100%;
+}
+
+#billingDashboard .table-filters .filter-with-icon input {
+    min-width: 200px;
+}
+
+#billingDashboard .table-action-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Table Styles */
+#billingDashboard .table-responsive {
+    overflow-x: auto;
+    margin: 15px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+#billingDashboard #managementTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 2000px;
+}
+
+#billingDashboard #managementTable th {
+    background: #f1f5f9;
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--border-color);
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+}
+
+#billingDashboard #managementTable th.sortable:hover {
+    background-color: #e2e8f0;
+}
+
+#billingDashboard #managementTable th.sortable::after {
+    content: '↕';
+    margin-left: 8px;
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+#billingDashboard #managementTable th.sortable.asc::after {
+    content: '↑';
+    opacity: 1;
+}
+
+#billingDashboard #managementTable th.sortable.desc::after {
+    content: '↓';
+    opacity: 1;
+}
+
+#billingDashboard #managementTable td {
+    padding: 16px 12px;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+#billingDashboard #managementTable tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+#billingDashboard #managementTable tbody tr:hover {
+    background-color: #f8fafc !important;
+    filter: brightness(0.98);
+}
+
+#billingDashboard #managementTable tr.requires-manual {
+    border-left: 3px solid var(--manual-color);
+}
+
+/* Status Badges */
+#billingDashboard .status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#billingDashboard .status-success {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+#billingDashboard .status-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+#billingDashboard .status-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+#billingDashboard .status-info {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+#billingDashboard .status-manual {
+    background-color: #f3e8ff;
+    color: #7c3aed;
+}
+
+/* Action Buttons */
+#billingDashboard .action-buttons {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+#billingDashboard .action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    background: white;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+#billingDashboard .action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+#billingDashboard .btn-view:hover {
+    background-color: #dbeafe;
+    color: #1e40af;
+    border-color: #1e40af;
+}
+
+#billingDashboard .btn-retry:hover {
+    background-color: #fef3c7;
+    color: #92400e;
+    border-color: #92400e;
+}
+
+#billingDashboard .btn-pause:hover {
+    background-color: #e0e7ff;
+    color: #4f46e5;
+    border-color: #4f46e5;
+}
+
+#billingDashboard .btn-ai:hover {
+    background-color: #f0f9ff;
+    color: #0369a1;
+    border-color: #0369a1;
+}
+
+#billingDashboard .btn-override:hover {
+    background-color: #fce7f3;
+    color: #be185d;
+    border-color: #be185d;
+}
+
+#billingDashboard .btn-manual:hover {
+    background-color: #f3e8ff;
+    color: #7c3aed;
+    border-color: #7c3aed;
+}
+
+/* File Buttons */
+#billingDashboard .file-buttons {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+#billingDashboard .file-btn {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 6px 8px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    position: relative;
+    transition: all 0.2s;
+    font-size: 12px;
+    min-width: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#billingDashboard .file-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+#billingDashboard .file-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: var(--error-color);
+    color: white;
+    border-radius: 10px;
+    padding: 2px 5px;
+    font-size: 9px;
+    font-weight: bold;
+    min-width: 16px;
+    text-align: center;
+    border: 1px solid white;
+}
+
+/* Source File Info */
+#billingDashboard .source-file-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#billingDashboard .file-version {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 12px;
+}
+
+#billingDashboard .source-file-info small {
+    font-size: 11px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+/* Step Detail Panel */
+#billingDashboard .step-detail-panel {
+    background: var(--card-color);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--shadow-md);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+#billingDashboard .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+#billingDashboard .panel-title {
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#billingDashboard .step-info {
+    margin-bottom: 24px;
+}
+
+#billingDashboard .info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+#billingDashboard .info-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+#billingDashboard .info-value {
+    font-weight: 600;
+}
+
+#billingDashboard .panel-section {
+    margin-bottom: 24px;
+}
+
+#billingDashboard .section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#billingDashboard .manual-workflow-section {
+    background-color: #faf5ff;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--manual-color);
+}
+
+#billingDashboard .manual-workflow-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--manual-color);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#billingDashboard .manual-workflow-details {
+    font-size: 13px;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+#billingDashboard .manual-workflow-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+#billingDashboard .manual-action-btn {
+    width: 100%;
+    padding: 8px 12px;
+    background-color: white;
+    border: 1px solid var(--manual-color);
+    color: var(--manual-color);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+#billingDashboard .manual-action-btn:hover {
+    background-color: var(--manual-color);
+    color: white;
+}
+
+#billingDashboard .log-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#billingDashboard .log-item {
+    padding: 12px;
+    border-left: 3px solid var(--border-color);
+    margin-bottom: 8px;
+    background-color: #f8fafc;
+    border-radius: 0 8px 8px 0;
+    animation: fadeIn 0.3s ease-out;
+}
+
+#billingDashboard .log-item.error {
+    border-left-color: var(--error-color);
+    background-color: #fef2f2;
+}
+
+#billingDashboard .log-item.warning {
+    border-left-color: var(--warning-color);
+    background-color: #fffbeb;
+}
+
+#billingDashboard .log-item.success {
+    border-left-color: var(--success-color);
+    background-color: #f0fdf4;
+}
+
+#billingDashboard .log-item.manual {
+    border-left-color: var(--manual-color);
+    background-color: #faf5ff;
+}
+
+#billingDashboard .log-time {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+#billingDashboard .log-message {
+    font-size: 13px;
+}
+
+/* Table Controls */
+#billingDashboard .columns-dropdown {
+    position: relative;
+}
+
+#billingDashboard .columns-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px;
+    min-width: 220px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    display: none;
+}
+
+#billingDashboard .columns-menu.active {
+    display: block;
+}
+
+#billingDashboard .columns-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    cursor: pointer;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+#billingDashboard .columns-menu-item:last-child {
+    border-bottom: none;
+}
+
+#billingDashboard .columns-menu-item input {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+#billingDashboard .columns-menu-item label {
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+#billingDashboard .columns-menu-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+    gap: 8px;
+}
+
+#billingDashboard .columns-menu-actions button {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-width: auto;
+}
+
+/* Pagination Controls */
+#billingDashboard .pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+#billingDashboard .pagination-info {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+#billingDashboard .pagination-buttons {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+#billingDashboard .page-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border-color);
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+#billingDashboard .page-btn:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+#billingDashboard .page-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+#billingDashboard .page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+#billingDashboard .page-ellipsis {
+    padding: 0 8px;
+    color: var(--text-secondary);
+}
+
+#billingDashboard .page-size-selector {
+    margin-left: 16px;
+}
+
+#billingDashboard .page-size-selector select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    font-size: 13px;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* ============================================= */
+/* FILE MANAGER MODAL STYLES                      */
+/* ============================================= */
+
+#billingDashboard .file-manager-modal {
+    max-width: 1400px !important;
+    width: 95% !important;
+}
+
+#billingDashboard .file-filters-section {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+#billingDashboard .filter-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+#billingDashboard .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 160px;
+    flex: 1;
+}
+
+#billingDashboard .filter-group label {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#billingDashboard .filter-group label i {
+    color: var(--primary-color);
+    font-size: 14px;
+}
+
+#billingDashboard .filter-input,
+#billingDashboard .filter-select {
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: white;
+    width: 100%;
+    transition: all 0.2s;
+}
+
+#billingDashboard .filter-input:focus,
+#billingDashboard .filter-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+#billingDashboard .filter-input:hover,
+#billingDashboard .filter-select:hover {
+    border-color: #94a3b8;
+}
+
+#billingDashboard .files-table-container {
+    max-height: 450px;
+    overflow-y: auto;
+    margin: 20px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: white;
+    box-shadow: var(--shadow-sm);
+}
+
+#billingDashboard .files-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#billingDashboard .files-table th {
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 2px solid var(--border-color);
+    font-size: 14px;
+}
+
+#billingDashboard .files-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+#billingDashboard .files-table tbody tr {
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+#billingDashboard .files-table tbody tr:hover {
+    background-color: #f1f5f9 !important;
+}
+
+#billingDashboard .files-table tbody tr.selected {
+    background-color: #e0f2fe !important;
+    border-left: 4px solid var(--primary-color);
+}
+
+#billingDashboard .file-name {
+    border-left: 4px solid;
+    padding-left: 12px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+#billingDashboard .file-action-bar {
+    margin: 20px 0;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+#billingDashboard .selected-file-info {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#billingDashboard .selected-file-info i {
+    font-size: 18px;
+}
+
+#billingDashboard .file-action-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+/* File Viewer Modal */
+#billingDashboard .file-viewer-modal {
+    max-width: 1200px !important;
+    width: 90% !important;
+}
+
+#billingDashboard .file-list-container {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: white;
+    margin: 20px 0;
+}
+
+#billingDashboard .file-list-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#billingDashboard .file-list-table th {
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 14px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 2px solid var(--border-color);
+}
+
+#billingDashboard .file-list-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+#billingDashboard .file-list-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* File Manager Tabs */
+#billingDashboard .file-manager-tabs {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#billingDashboard .file-manager-tabs .tabs-header {
+    display: flex;
+    gap: 8px;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+#billingDashboard .file-manager-tabs .tab-btn {
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    margin-bottom: -2px;
+}
+
+#billingDashboard .file-manager-tabs .tab-btn:hover {
+    color: var(--primary-color);
+    background: #f1f5f9;
+}
+
+#billingDashboard .file-manager-tabs .tab-btn.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    background: linear-gradient(180deg, #f0f9ff 0%, transparent 100%);
+}
+
+#billingDashboard .file-manager-tabs .tab-btn i {
+    font-size: 16px;
+}
+
+/* File Viewer Tabs */
+#billingDashboard .file-viewer-tabs {
+    display: flex;
+    flex-direction: column;
+}
+
+#billingDashboard .file-viewer-tabs .tabs-header {
+    display: flex;
+    gap: 8px;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+#billingDashboard .file-viewer-tabs .tab-btn {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#billingDashboard .file-viewer-tabs .tab-btn:hover {
+    color: var(--primary-color);
+    background: #f1f5f9;
+}
+
+#billingDashboard .file-viewer-tabs .tab-btn.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    background: linear-gradient(180deg, #f0f9ff 0%, transparent 100%);
+}
+/* ============================================= */
+/* COMPREHENSIVE FLOATING WINDOW (MODAL) STYLES  */
+/* Complete styling for all modal content         */
+/* ============================================= */
+
+/* Modal Base Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.75) 100%);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    overflow: hidden;
+    animation: modalBackdropFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+/* Modal Content Container */
+.modal-content {
+    background: linear-gradient(145deg, #ffffff 0%, #fafcff 100%);
+    border-radius: 32px;
+    box-shadow: 0 50px 80px -30px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+                0 0 40px rgba(37, 99, 235, 0.2);
+    width: 95%;
+    max-width: 1600px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    animation: modalSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+    background-size: 300% 100%;
+    animation: gradientShift 8s ease infinite;
+    z-index: 10;
+    border-radius: 32px 32px 0 0;
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 28px 35px;
+    border-bottom: 2px solid rgba(226, 232, 240, 0.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    position: relative;
+    border-radius: 32px 32px 0 0;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+.modal-header h2 i {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.2rem;
+    filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.3));
+}
+
+/* Close Button */
+.close-modal {
+    background: rgba(226, 232, 240, 0.5);
+    border: 2px solid rgba(148, 163, 184, 0.3);
+    color: #475569;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.close-modal:hover {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: white;
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 35px 40px;
+    overflow-y: auto;
+    flex: 1;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #e2e8f0;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+    border-radius: 10px;
+    border: 2px solid #f1f5f9;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #2563eb, #7c3aed);
+}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 25px 35px;
+    border-top: 2px solid rgba(226, 232, 240, 0.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 0 0 32px 32px;
+}
+
+/* File Manager Modal Specific */
+.file-manager-modal {
+    max-width: 1600px !important;
+    width: 98% !important;
+    background: linear-gradient(145deg, #ffffff 0%, #f0f5ff 100%);
+}
+
+/* File Manager Tabs */
+.file-manager-tabs {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+    border-radius: 24px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.file-manager-tabs .tabs-header {
+    display: flex;
+    gap: 12px;
+    border-bottom: 3px solid #e2e8f0;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    border-radius: 16px 16px 0 0;
+}
+
+.file-manager-tabs .tab-btn {
+    padding: 16px 32px;
+    background: transparent;
+    border: none;
+    border-radius: 12px 12px 0 0;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #64748b;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    margin-bottom: -3px;
+    letter-spacing: 0.3px;
+}
+
+.file-manager-tabs .tab-btn i {
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.file-manager-tabs .tab-btn:hover {
+    color: #3b82f6;
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.05), transparent);
+    transform: translateY(-2px);
+}
+
+.file-manager-tabs .tab-btn.active {
+    color: #3b82f6;
+    border-bottom: 3px solid #3b82f6;
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.08), transparent);
+    font-weight: 800;
+}
+
+.file-manager-tabs .tab-btn.active i {
+    transform: scale(1.1);
+    color: #3b82f6;
+    filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.3));
+}
+
+/* Tab Content */
+.file-manager-tabs .tab-content {
+    display: none;
+    padding: 20px 15px;
+    animation: tabFadeSlide 0.4s ease-out;
+}
+
+.file-manager-tabs .tab-content.active {
+    display: block;
+}
+
+/* Filters Section */
+.file-filters-section {
+    background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 24px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), inset 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.filter-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 200px;
+    flex: 1;
+}
+
+.filter-group label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-group label i {
+    color: #3b82f6;
+    font-size: 1rem;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 4px;
+    border-radius: 6px;
+}
+
+.filter-input,
+.filter-select {
+    padding: 14px 18px;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    background: white;
+    width: 100%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #1e293b;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.filter-input:focus,
+.filter-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15), 0 4px 12px rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.filter-input:hover,
+.filter-select:hover {
+    border-color: #94a3b8;
+    background: #ffffff;
+}
+
+.filter-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 18px;
+    padding-right: 48px;
+}
+
+/* Files Table Container */
+.files-table-container {
+    background: white;
+    border-radius: 24px;
+    border: 2px solid #e2e8f0;
+    margin: 25px 0;
+    overflow: hidden;
+    box-shadow: 0 15px 30px -15px rgba(0, 0, 0, 0.1);
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+/* Files Table */
+.files-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.files-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.files-table th {
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    padding: 20px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    border-bottom: 3px solid #3b82f6;
+}
+
+.files-table th i {
+    margin-right: 8px;
+    font-size: 1rem;
+    color: #93c5fd;
+}
+
+.files-table td {
+    padding: 18px 16px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: middle;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.files-table tbody tr {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.files-table tbody tr:hover {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    transform: scale(1.01);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.files-table tbody tr.selected {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-left: 5px solid #3b82f6;
+    box-shadow: inset 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+/* File Name Styling */
+.file-name {
+    font-weight: 600;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 12px;
+    border-left: 4px solid transparent;
+}
+
+.file-name i {
+    color: #3b82f6;
+    font-size: 1.2rem;
+}
+
+/* File Buttons */
+.file-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.file-btn {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 10px 16px;
+    cursor: pointer;
+    color: #475569;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.file-btn i {
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.file-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.3);
+}
+
+.file-btn.calc-btn:hover {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border-color: #1d4ed8;
+    color: white;
+}
+
+.file-btn.approval-btn:hover {
+    background: linear-gradient(135deg, #10b981, #059669);
+    border-color: #047857;
+    color: white;
+}
+
+.file-btn.invoice-btn:hover {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    border-color: #6d28d9;
+    color: white;
+}
+
+.file-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border-radius: 30px;
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    min-width: 22px;
+    text-align: center;
+    border: 2px solid white;
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+    animation: pulseBadge 2s infinite;
+}
+
+/* Status Badges in Tables */
+.files-table .status-badge {
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.status-badge.status-success {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #065f46;
+    border: 1px solid #10b981;
+}
+
+.status-badge.status-warning {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #92400e;
+    border: 1px solid #f59e0b;
+}
+
+.status-badge.status-info {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    color: #1e40af;
+    border: 1px solid #3b82f6;
+}
+
+.status-badge.status-error {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #991b1b;
+    border: 1px solid #ef4444;
+}
+
+.status-badge.status-manual {
+    background: linear-gradient(135deg, #f3e8ff, #ede9fe);
+    color: #7c3aed;
+    border: 1px solid #8b5cf6;
+}
+
+/* Action Bar */
+.file-action-bar {
+    margin: 30px 0 20px;
+    padding: 20px 25px;
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+}
+
+.selected-file-info {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #f1f5f9, #ffffff);
+    padding: 12px 20px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.selected-file-info i {
+    color: #3b82f6;
+    font-size: 1.3rem;
+    filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.3));
+}
+
+.file-action-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+/* Control Buttons */
+.control-btn {
+    padding: 14px 24px;
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.control-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.control-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.control-btn i {
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.control-btn.primary {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border: 1px solid #1d4ed8;
+}
+
+.control-btn.primary:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px -8px #2563eb;
+}
+
+.control-btn.success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: 1px solid #047857;
+}
+
+.control-btn.success:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px -8px #059669;
+}
+
+.control-btn.info {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+    border: 1px solid #6d28d9;
+}
+
+.control-btn.info:hover {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px -8px #7c3aed;
+}
+
+.control-btn.warning {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border: 1px solid #b45309;
+}
+
+.control-btn.warning:hover {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px -8px #d97706;
+}
+
+.control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    filter: grayscale(100%);
+}
+
+/* File Viewer Modal */
+.file-viewer-modal {
+    max-width: 1300px !important;
+    background: linear-gradient(145deg, #ffffff 0%, #f5f9ff 100%);
+}
+
+/* File Viewer Tabs */
+.file-viewer-tabs {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.file-viewer-tabs .tabs-header {
+    display: flex;
+    gap: 10px;
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 15px 20px;
+    border-bottom: 2px solid #e2e8f0;
+    border-radius: 16px 16px 0 0;
+}
+
+.file-viewer-tabs .tab-btn {
+    padding: 14px 28px;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #64748b;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.file-viewer-tabs .tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.file-viewer-tabs .tab-btn:hover {
+    color: #3b82f6;
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    transform: translateY(-2px);
+}
+
+.file-viewer-tabs .tab-btn.active {
+    color: #3b82f6;
+    background: linear-gradient(135deg, #ffffff, #dbeafe);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.file-viewer-tabs .tab-btn.active::after {
+    width: 80%;
+}
+
+.file-viewer-tabs .tab-btn i {
+    font-size: 1.2rem;
+}
+
+/* File List Container */
+.file-list-container {
+    max-height: 500px;
+    overflow-y: auto;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    background: white;
+    margin: 20px 0;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+/* File List Table */
+.file-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.file-list-table th {
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    padding: 18px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 3px solid #3b82f6;
+}
+
+.file-list-table th i {
+    margin-right: 8px;
+    color: #93c5fd;
+}
+
+.file-list-table td {
+    padding: 16px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: middle;
+}
+
+.file-list-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.file-list-table tbody tr:hover {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+/* Quick Setup Modal */
+.quick-setup-modal {
+    max-width: 1800px !important;
+}
+
+/* Modal Tabs */
+.modal-tabs {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.modal-tabs .tabs-header {
+    display: flex;
+    gap: 15px;
+    border-bottom: 3px solid #e2e8f0;
+    margin-bottom: 25px;
+    padding: 0 15px;
+    background: white;
+    border-radius: 16px 16px 0 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.modal-tabs .tabs-header::-webkit-scrollbar {
+    height: 6px;
+}
+
+.modal-tabs .tabs-header::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+
+.modal-tabs .tabs-header::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 3px;
+}
+
+.modal-tabs .tab-btn {
+    padding: 18px 32px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #64748b;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+    position: relative;
+    margin-bottom: -3px;
+}
+
+.modal-tabs .tab-btn:hover {
+    color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+.modal-tabs .tab-btn.active {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.05), transparent);
+}
+
+.modal-tabs .tab-btn i {
+    font-size: 1.3rem;
+}
+
+/* Tab Content Inner */
+.tab-content-inner {
+    max-height: calc(90vh - 300px);
+    overflow-y: auto;
+    padding-right: 20px;
+}
+
+/* Config Sections */
+.config-section {
+    margin-bottom: 35px;
+    padding: 30px;
+    background: white;
+    border-radius: 24px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.config-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+    border-radius: 6px 0 0 6px;
+}
+
+.config-section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 35px -15px rgba(59, 130, 246, 0.2);
+    border-color: #93c5fd;
+}
+
+.config-section h4 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    color: #1e293b;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.config-section h4 i {
+    color: #3b82f6;
+    font-size: 1.4rem;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+}
+
+.config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.config-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.config-item label {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.config-item label i {
+    color: #3b82f6;
+    font-size: 1rem;
+}
+
+.config-item select,
+.config-item input {
+    padding: 16px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    font-size: 1rem;
+    background: white;
+    width: 100%;
+    transition: all 0.3s ease;
+    color: #1e293b;
+    font-weight: 500;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 20px;
+    padding-right: 50px;
+}
+
+.config-item select:focus,
+.config-item input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.config-item input[type="date"] {
+    background-image: none;
+    padding-right: 20px;
+}
+
+/* AI Fix Modal */
+.ai-suggestion {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 2px solid #bae6fd;
+    border-radius: 24px;
+    padding: 30px;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-suggestion::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+.confidence-score {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border-radius: 40px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.suggestion-diff {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 25px 0;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.02);
+    position: relative;
+    z-index: 1;
+}
+
+.diff-added {
+    color: #10b981;
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.diff-removed {
+    color: #ef4444;
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    padding: 4px 12px;
+    border-radius: 8px;
+    text-decoration: line-through;
+    font-weight: 600;
+}
+
+/* Advanced Search Modal */
+.search-condition {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr auto;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    padding: 18px;
+    border-radius: 20px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.search-condition:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.search-condition select,
+.search-condition input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.search-condition select:focus,
+.search-condition input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.remove-condition {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    border: 2px solid #ef4444;
+    color: #dc2626;
+    font-size: 24px;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+    font-weight: 800;
+}
+
+.remove-condition:hover {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    transform: rotate(90deg) scale(1.1);
+    border-color: #b91c1c;
+}
+
+/* Exception Editor Modal */
+.exception-editor {
+    background: linear-gradient(135deg, #f8fafc, #ffffff);
+    border-radius: 24px;
+    padding: 30px;
+}
+
+.exception-list {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fee2e2;
+    border: 2px solid #ef4444;
+    border-radius: 20px;
+    list-style: none;
+}
+
+.exception-list li {
+    padding: 12px 16px;
+    margin: 8px 0;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    border-left: 5px solid #ef4444;
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.1);
+}
+
+.exception-list li i {
+    color: #ef4444;
+    font-size: 1.2rem;
+}
+
+/* Modal Footer Info */
+.modal-footer-left {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.modal-footer-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Animations */
+@keyframes modalBackdropFade {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(12px);
+    }
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes tabFadeSlide {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes pulseBadge {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .modal-content {
+        max-width: 95%;
+    }
+    
+    .config-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .filter-row {
+        gap: 15px;
+    }
+    
+    .filter-group {
+        min-width: 160px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .modal-header {
+        padding: 22px 25px;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .modal-body {
+        padding: 25px 30px;
+    }
+    
+    .files-table th,
+    .files-table td {
+        padding: 14px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .file-buttons {
+        flex-direction: column;
+    }
+    
+    .file-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 992px) {
+    .modal.active {
+        padding: 15px;
+        align-items: flex-start;
+    }
+    
+    .modal-content {
+        max-height: 95vh;
+    }
+    
+    .file-manager-tabs .tabs-header {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    
+    .file-manager-tabs .tab-btn {
+        flex: 1;
+        min-width: 160px;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+    
+    .filter-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .file-action-bar {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+    
+    .selected-file-info {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .file-action-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+    
+    .modal-footer-left,
+    .modal-footer-right {
+        justify-content: center;
+    }
+    
+    .search-condition {
+        grid-template-columns: 1fr;
+    }
+    
+    .config-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-tabs .tabs-header {
+        flex-wrap: wrap;
+        border-bottom: none;
+    }
+    
+    .modal-tabs .tab-btn {
+        flex: 1;
+        min-width: 140px;
+        justify-content: center;
+        border-bottom: 3px solid transparent;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.5rem;
+        flex-direction: column;
+    }
+    
+    .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .files-table {
+        min-width: 800px;
+    }
+    
+    .files-table-container {
+        overflow-x: auto;
+    }
+    
+    .file-viewer-tabs .tabs-header {
+        flex-wrap: wrap;
+    }
+    
+    .file-viewer-tabs .tab-btn {
+        flex: 1;
+        min-width: 120px;
+        justify-content: center;
+    }
+    
+    .file-list-table {
+        min-width: 600px;
+    }
+    
+    .modal-tabs .tab-btn {
+        min-width: 100%;
+        border-bottom: 3px solid #e2e8f0;
+    }
+    
+    .modal-tabs .tab-btn.active {
+        border-bottom-color: #3b82f6;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .modal-header h2 i {
+        font-size: 1.5rem;
+    }
+    
+    .file-manager-tabs .tab-btn {
+        min-width: 100%;
+    }
+    
+    .file-buttons {
+        flex-direction: column;
+    }
+    
+    .file-btn {
+        width: 100%;
+    }
+    
+    .control-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .file-action-buttons {
+        flex-direction: column;
+    }
+    
+    .modal-footer-left,
+    .modal-footer-right {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .config-section {
+        padding: 20px;
+    }
+    
+    .config-item select,
+    .config-item input {
+        padding: 14px 16px;
+    }
+    
+    .ai-suggestion {
+        padding: 20px;
+    }
+    
+    .suggestion-diff {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Dark Mode Support (if needed) */
+@media (prefers-color-scheme: dark) {
+    .modal-content {
+        background: linear-gradient(145deg, #1e293b, #0f172a);
+    }
+    
+    .modal-header {
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+    }
+    
+    .modal-header h2 {
+        background: linear-gradient(135deg, #ffffff, #e2e8f0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .modal-body {
+        background: linear-gradient(180deg, #1e293b, #0f172a);
+    }
+    
+    .file-manager-tabs {
+        background: #1e293b;
+    }
+    
+    .files-table td {
+        background: #1e293b;
+        color: #e2e8f0;
+        border-bottom-color: #334155;
+    }
+    
+    .file-name {
+        color: #f1f5f9;
+    }
+    
+    .config-section {
+        background: #1e293b;
+        border-color: #334155;
+    }
+    
+    .config-section h4 {
+        color: #f1f5f9;
+    }
+    
+    .config-item label {
+        color: #e2e8f0;
+    }
+    
+    .config-item select,
+    .config-item input {
+        background: #334155;
+        border-color: #475569;
+        color: #f1f5f9;
+    }
+    
+    .filter-input,
+    .filter-select {
+        background: #334155;
+        border-color: #475569;
+        color: #f1f5f9;
+    }
+    
+    .filter-group label {
+        color: #e2e8f0;
+    }
+    
+    .file-filters-section {
+        background: linear-gradient(145deg, #1e293b, #0f172a);
+        border-color: #334155;
+    }
+    
+    .file-action-bar {
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        border-color: #334155;
+    }
+    
+    .selected-file-info {
+        background: #1e293b;
+        border-color: #334155;
+        color: #f1f5f9;
+    }
+    
+    .search-condition {
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        border-color: #334155;
+    }
+    
+    .search-condition select,
+    .search-condition input {
+        background: #334155;
+        border-color: #475569;
+        color: #f1f5f9;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .modal-content {
+        border: 3px solid black;
+    }
+    
+    .modal-header {
+        background: #0044cc !important;
+        color: white !important;
+    }
+    
+    .modal-header h2,
+    .modal-header h2 i {
+        background: none !important;
+        color: white !important;
+        -webkit-text-fill-color: white !important;
+    }
+    
+    .files-table th {
+        background: black !important;
+        color: white !important;
+    }
+    
+    .file-btn,
+    .control-btn {
+        border: 2px solid black !important;
+    }
+    
+    .status-badge {
+        border: 2px solid currentColor !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .modal {
+        position: static;
+        display: block !important;
+        background: white;
+        backdrop-filter: none;
+    }
+    
+    .modal-content {
+        box-shadow: none;
+        border: 1px solid black;
+        max-height: none;
+        overflow: visible;
+    }
+    
+    .modal-header {
+        background: #f1f5f9 !important;
+        color: black !important;
+        print-color-adjust: exact;
+    }
+    
+    .modal-header h2,
+    .modal-header h2 i {
+        background: none !important;
+        color: black !important;
+        -webkit-text-fill-color: black !important;
+    }
+    
+    .close-modal,
+    .modal-footer,
+    .file-action-bar,
+    .file-btn,
+    .control-btn,
+    .file-manager-tabs .tab-btn {
+        display: none !important;
+    }
+    
+    .files-table th {
+        background: #f1f5f9 !important;
+        color: black !important;
+        border-bottom: 2px solid black;
+    }
+    
+    .status-badge {
+        border: 1px solid black !important;
+        print-color-adjust: exact;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .modal,
+    .modal-content,
+    .modal-header,
+    .modal-body,
+    .file-btn,
+    .control-btn,
+    .files-table tbody tr,
+    .config-section,
+    .search-condition,
+    .close-modal,
+    .file-manager-tabs .tab-btn,
+    .file-viewer-tabs .tab-btn,
+    .modal-tabs .tab-btn,
+    .filter-input,
+    .filter-select,
+    .config-item select,
+    .config-item input {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+    
+    .file-btn:hover,
+    .control-btn:hover,
+    .files-table tbody tr:hover,
+    .config-section:hover,
+    .search-condition:hover,
+    .close-modal:hover {
+        transform: none !important;
+    }
+    
+    .modal-content::before,
+    .file-count {
+        animation: none !important;
+    }
+}
+
+/* Touch Device Optimization */
+@media (hover: none) and (pointer: coarse) {
+    .file-btn,
+    .control-btn,
+    .tab-btn,
+    .filter-select,
+    .filter-input,
+    .config-item select,
+    .config-item input {
+        min-height: 52px;
+        font-size: 16px;
+    }
+    
+    .file-btn:hover,
+    .control-btn:hover,
+    .tab-btn:hover {
+        transform: none;
+    }
+    
+    .files-table tbody tr {
+        cursor: default;
+    }
+    
+    .files-table tbody tr:hover {
+        transform: none;
+    }
+}

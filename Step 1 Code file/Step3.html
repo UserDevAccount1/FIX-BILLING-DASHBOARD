@@ -1,0 +1,3614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Title -->
+    <title>Excis Billing System</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="DexignLab">
+    <meta name="robots" content="">
+    
+    <meta property="og:image" content="">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Mobile Specific -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon icon -->
+
+    <link rel="icon" type="image/png" sizes="16x16" href="../public/assets/images/favicon_io/favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+    <link href="../public/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="../public/assets/css/style.css" rel="stylesheet" type="text/css" />
+     <link rel="stylesheet" href="./style/Quick_Data_Input.css">
+     <link rel="stylesheet" href="./style/Band_Details_Settings.css">
+     <link rel="stylesheet" href="./style/Band_Details_OverviewTab.css">
+     <link rel="stylesheet" href="./style/Band_Details_DedicatedTab.css">
+     <link rel="stylesheet" href="./style/Band_Details_ProjectTab.css">
+     <link rel="stylesheet" href="./style/Band_Details_CalendarTab.css">
+     <link rel="stylesheet" href="./style/Band_Details_VersionTab.css">
+
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="loader">
+            <div class="dots">
+                <div class="dot mainDot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+ <!-- Nav header start -->
+ <div class="nav-header">
+    <style>
+        .brand-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-abbr {
+            margin-right: 10px; /* Adjust spacing as needed */
+        }
+
+        .logo-text {
+            font-size: 24px; /* Adjust as needed */
+            font-weight: bold; /* Adjust as needed */
+            color: #ffffff; /* Adjust as needed */
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            .logo-text {
+                display: none; /* Hide text on mobile */
+            }
+        }
+
+        /* Style when side menu is hidden */
+        .side-menu-hidden .logo-text {
+            display: none; /* Hide text */
+        }
+
+        .side-menu-hidden .nav-header {
+            justify-content: center; /* Center the logo when side menu is hidden */
+        }
+    </style>
+
+    <a href="#" class="brand-logo">
+        <img src="../public/assets/images/logo.png" alt="Brand Logo" class="logo-abbr" width="40" height="40">
+        <style>
+    .logo-text {
+        color: rgb(255, 255, 255) !important;
+    }
+</style>
+
+<span class="logo-text">Excis</span>
+
+    </a>
+
+    <div class="brand-title">
+        <!-- Add content here if needed -->
+    </div>
+
+    <div class="nav-control">
+        <div class="hamburger" id="hamburger-menu">
+            <span class="line"></span><span class="line"></span><span class="line"></span>
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="22" y="11" width="4" height="4" rx="2" fill="#2A353A"/>
+                <rect x="11" width="4" height="4" rx="2" fill="#2A353A"/>
+                <rect x="22" width="4" height="4" rx="2" fill="#2A353A"/>
+                <rect x="11" y="11" width="4" height="4" rx="2" fill="#2A353A"/>
+                <rect x="11" y="22" width="4" height="4" rx="2" fill="#2A353A"/>
+                <rect width="4" height="4" rx="2" fill="#2A353A"/>
+                <rect y="11" width="4" height="4" rx="2" fill="#2A353A"/>
+                <rect x="22" y="22" width="4" height="4" rx="2" fill="#2A353A"/>
+                <rect y="22" width="4" height="4" rx="2" fill="#2A353A"/>
+            </svg>
+        </div>
+    </div>
+</div>
+<!-- Nav header end -->
+
+<script>
+    document.getElementById('hamburger-menu').addEventListener('click', function() {
+        const mainWrapper = document.getElementById('main-wrapper');
+        mainWrapper.classList.toggle('side-menu-hidden');
+    });
+</script>
+    
+    <!-- Nav header end -->
+        <!--**********************************
+	Chat box start
+
+        <div class="chatbox">
+            <div class="chatbox-close"></div>
+            <div class="custom-tab-1">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#notes">Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#alerts">Alerts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#chat">Chat</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="chat" role="tabpanel">
+                        <div class="card mb-sm-3 mb-md-0 contacts_card dlab-chat-user-box">
+                            <div class="card-header chat-list-header text-center">
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#chat_model"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect fill="#000000" x="4" y="11" width="16" height="2" rx="1"/><rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1"/></g></svg></a>
+                                <div>
+                                    <h6 class="mb-1">Chat List</h6>
+                                    <p class="mb-0">Show All</p>
+                                </div>
+                                <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><circle fill="#000000" cx="5" cy="12" r="2"/><circle fill="#000000" cx="12" cy="12" r="2"/><circle fill="#000000" cx="19" cy="12" r="2"/></g></svg></a>
+                            </div>
+                            <div class="card-body contacts_body p-0 dlab-scroll  " id="DLAB_W_Contacts_Body">
+                                <ul class="contacts">
+                                    <li class="name-first-letter">A</li>
+                                    <li class="active dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/1.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Archie Parker</span>
+                                                <p>Kalid is online</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/2.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Alfie Mason</span>
+                                                <p>Taherah left 7 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/3.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>AharlieKane</span>
+                                                <p>Sami is online</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/4.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Athan Jacoby</span>
+                                                <p>Nargis left 30 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="name-first-letter">B</li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/5.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Bashid Samim</span>
+                                                <p>Rashid left 50 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/1.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Breddie Ronan</span>
+                                                <p>Kalid is online</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/2.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Ceorge Carson</span>
+                                                <p>Taherah left 7 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="name-first-letter">D</li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/3.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Darry Parker</span>
+                                                <p>Sami is online</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/4.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Denry Hunter</span>
+                                                <p>Nargis left 30 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="name-first-letter">J</li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/5.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Jack Ronan</span>
+                                                <p>Rashid left 50 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/1.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Jacob Tucker</span>
+                                                <p>Kalid is online</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/2.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>James Logan</span>
+                                                <p>Taherah left 7 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/3.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Joshua Weston</span>
+                                                <p>Sami is online</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="name-first-letter">O</li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/4.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Oliver Acker</span>
+                                                <p>Nargis left 30 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dlab-chat-user">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont">
+                                                <img src="../public/assets/images/avatar/5.jpg" class="rounded-circle user_img" alt="">
+                                                <span class="online_icon offline"></span>
+                                            </div>
+                                            <div class="user_info">
+                                                <span>Oscar Weston</span>
+                                                <p>Rashid left 50 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card chat dlab-chat-history-box d-none">
+                            <div class="card-header chat-list-header text-center">
+                                <a href="javascript:void(0);" class="dlab-chat-history-back">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><polygon points="0 0 24 0 24 24 0 24"/><rect fill="#000000" opacity="0.3" transform="translate(15.000000, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-15.000000, -12.000000) " x="14" y="7" width="2" height="10" rx="1"/><path d="M3.7071045,15.7071045 C3.3165802,16.0976288 2.68341522,16.0976288 2.29289093,15.7071045 C1.90236664,15.3165802 1.90236664,14.6834152 2.29289093,14.2928909 L8.29289093,8.29289093 C8.67146987,7.914312 9.28105631,7.90106637 9.67572234,8.26284357 L15.6757223,13.7628436 C16.0828413,14.136036 16.1103443,14.7686034 15.7371519,15.1757223 C15.3639594,15.5828413 14.7313921,15.6103443 14.3242731,15.2371519 L9.03007346,10.3841355 L3.7071045,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(9.000001, 11.999997) scale(-1, -1) rotate(90.000000) translate(-9.000001, -11.999997) "/></g></svg>
+						</a>
+                                <div>
+                                    <h6 class="mb-1">Chat with Khelesh</h6>
+                                    <p class="mb-0 text-success">Online</p>
+                                </div>
+                                <div class="dropdown">
+                                    <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1" >
+									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+										<rect x="0" y="0" width="24" height="24"/>
+										<circle fill="#000000" cx="5" cy="12" r="2"/>
+										<circle fill="#000000" cx="12" cy="12" r="2"/>
+										<circle fill="#000000" cx="19" cy="12" r="2"/>
+									</g>
+								</svg>
+							</a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li class="dropdown-item"><i class="fa fa-user-circle text-primary me-2"></i> View profile</li>
+                                        <li class="dropdown-item"><i class="fa fa-users text-primary me-2"></i> Add to btn-close friends</li>
+                                        <li class="dropdown-item"><i class="fa fa-plus text-primary me-2"></i> Add to group</li>
+                                        <li class="dropdown-item"><i class="fa fa-ban text-primary me-2"></i> Block</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body msg_card_body dlab-scroll" id="DLAB_W_Contacts_Body3">
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        Hi, how are you samim?
+                                        <span class="msg_time">8:40 AM, Today</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send">
+                                        Hi Khalid i am good tnx how about you?
+                                        <span class="msg_time_send">8:55 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        I am good too, thank you for your chat template
+                                        <span class="msg_time">9:00 AM, Today</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send">
+                                        You are welcome
+                                        <span class="msg_time_send">9:05 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        I am looking for your next templates
+                                        <span class="msg_time">9:07 AM, Today</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send">
+                                        Ok, thank you have a good day
+                                        <span class="msg_time_send">9:10 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        Bye, see you
+                                        <span class="msg_time">9:12 AM, Today</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        Hi, how are you samim?
+                                        <span class="msg_time">8:40 AM, Today</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send">
+                                        Hi Khalid i am good tnx how about you?
+                                        <span class="msg_time_send">8:55 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        I am good too, thank you for your chat template
+                                        <span class="msg_time">9:00 AM, Today</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send">
+                                        You are welcome
+                                        <span class="msg_time_send">9:05 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        I am looking for your next templates
+                                        <span class="msg_time">9:07 AM, Today</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end mb-4">
+                                    <div class="msg_cotainer_send">
+                                        Ok, thank you have a good day
+                                        <span class="msg_time_send">9:10 AM, Today</span>
+                                    </div>
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mb-4">
+                                    <div class="img_cont_msg">
+                                        <img src="../public/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                        Bye, see you
+                                        <span class="msg_time">9:12 AM, Today</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer type_msg">
+                                <div class="input-group">
+                                    <textarea class="form-control" placeholder="Type your message..."></textarea>
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-primary"><i class="fa fa-location-arrow"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="alerts" role="tabpanel">
+                        <div class="card mb-sm-3 mb-md-0 contacts_card">
+                            <div class="card-header chat-list-header text-center">
+                                <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><circle fill="#000000" cx="5" cy="12" r="2"/><circle fill="#000000" cx="12" cy="12" r="2"/><circle fill="#000000" cx="19" cy="12" r="2"/></g></svg></a>
+                                <div>
+                                    <h6 class="mb-1">Notications</h6>
+                                    <p class="mb-0">Show All</p>
+                                </div>
+                                <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/><path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero"/></g></svg></a>
+                            </div>
+                            <div class="card-body contacts_body p-0 dlab-scroll" id="DLAB_W_Contacts_Body1">
+                                <ul class="contacts">
+                                    <li class="name-first-letter">SEVER STATUS</li>
+                                    <li class="active">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont primary">KK</div>
+                                            <div class="user_info">
+                                                <span>David Nester Birthday</span>
+                                                <p class="text-primary">Today</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="name-first-letter">SOCIAL</li>
+                                    <li>
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont success">RU</div>
+                                            <div class="user_info">
+                                                <span>Perfection Simplified</span>
+                                                <p>Jame Smith commented on your status</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="name-first-letter">SEVER STATUS</li>
+                                    <li>
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont primary">AU</div>
+                                            <div class="user_info">
+                                                <span>AharlieKane</span>
+                                                <p>Sami is online</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex bd-highlight">
+                                            <div class="img_cont info">MO</div>
+                                            <div class="user_info">
+                                                <span>Athan Jacoby</span>
+                                                <p>Nargis left 30 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="notes">
+                        <div class="card mb-sm-3 mb-md-0 note_card">
+                            <div class="card-header chat-list-header text-center">
+                                <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect fill="#000000" x="4" y="11" width="16" height="2" rx="1"/><rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1"/></g></svg></a>
+                                <div>
+                                    <h6 class="mb-1">Notes</h6>
+                                    <p class="mb-0">Add New Nots</p>
+                                </div>
+                                <a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"/><path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/><path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero"/></g></svg></a>
+                            </div>
+                            <div class="card-body contacts_body p-0 dlab-scroll" id="DLAB_W_Contacts_Body2">
+                                <ul class="contacts">
+                                    <li class="active">
+                                        <div class="d-flex bd-highlight">
+                                            <div class="user_info">
+                                                <span>New order placed..</span>
+                                                <p>10 Aug 2020</p>
+                                            </div>
+                                            <div class="ms-auto">
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex bd-highlight">
+                                            <div class="user_info">
+                                                <span>Youtube, a video-sharing website..</span>
+                                                <p>10 Aug 2020</p>
+                                            </div>
+                                            <div class="ms-auto">
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex bd-highlight">
+                                            <div class="user_info">
+                                                <span>john just buy your product..</span>
+                                                <p>10 Aug 2020</p>
+                                            </div>
+                                            <div class="ms-auto">
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex bd-highlight">
+                                            <div class="user_info">
+                                                <span>Athan Jacoby</span>
+                                                <p>10 Aug 2020</p>
+                                            </div>
+                                            <div class="ms-auto">
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       **********************************
+	Chat box End
+***********************************-->
+        <!--**********************************
+	Header start
+***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                Billing Run </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown notification_dropdown all">
+                                <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+						<svg height="24" class="svg-main-icon" viewBox="0 0 32 32" width="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="clip_1"><path id="artboard_1" clip-rule="evenodd" d="m0 0h32v32h-32z"/></clipPath><g id="select" clip-path="url(#clip_1)"><path id="Vector" d="m4.70222 7.16834-.12871-.2574c-.0593-.11861-.13904-.22136-.23922-.30824-.10018-.08689-.21317-.1513-.33898-.19323-.1258-.04194-.25484-.0582-.38711-.0488-.13228.0094-.25772.04375-.37633.10306-.24699.12349-.41414.31622-.50147.5782-.08732.26197-.06923.51645.05426.76344l1.32093 2.64183c.0593.1186.13904.2214.23922.3083.10018.0868.21317.1512.33898.1932.1258.0419.25484.0582.38711.0488.13228-.0094.25772-.0438.37633-.1031.01854-.0092.03678-.0191.05471-.0295s.03552-.0214.05277-.0329l5.99999-3.99995c.1104-.07356.2024-.16543.2762-.27561s.1237-.23029.1497-.36032c.026-.13004.0261-.2601.0004-.39019-.0257-.13008-.0754-.25029-.1489-.36063-.1532-.22977-.3652-.37173-.636-.42588-.2707-.05416-.521-.00465-.7508.14853l-1.94316 1.29545-3.1143 2.07619zm11.29778-1.16834c-.2761 0-.5118.09763-.7071.29289s-.2929.43097-.2929.70711.0976.51184.2929.70711c.1953.19526.431.29289.7071.29289h14c.2761 0 .5118-.09763.7071-.29289.1953-.19527.2929-.43097.2929-.70711s-.0976-.51185-.2929-.70711-.431-.29289-.7071-.29289zm-11.27691 9.1683-.12871-.2574c-.12349-.2469-.31622-.4141-.5782-.5014-.26197-.0874-.51645-.0693-.76344.0542-.11861.0593-.22135.1391-.30824.2393-.08688.1001-.15129.2131-.19323.3389-.04193.1258-.0582.2549-.0488.3871.0094.1323.04376.2578.10306.3764l1.32092 2.6418c.1235.247.31623.4142.5782.5015.26198.0873.51646.0692.76345-.0543.01854-.0092.03678-.0191.05471-.0295s.03552-.0214.05277-.0329l6.00002-3.9999c.2298-.1532.3717-.3652.4259-.636.0541-.2708.0046-.521-.1486-.7508-.1531-.2298-.3651-.3717-.6359-.4259-.2708-.0541-.521-.0046-.7508.1485l-5.05749 3.3717zm11.27691-.1683c-.2761 0-.5118.0976-.7071.2929s-.2929.431-.2929.7071.0976.5118.2929.7071.431.2929.7071.2929h14c.2761 0 .5118-.0976.7071-.2929s.2929-.431.2929-.7071-.0976-.5118-.2929-.7071-.431-.2929-.7071-.2929zm-11.27691 8.1683-.12871-.2574c-.12349-.247-.31622-.4141-.5782-.5014-.26197-.0874-.51645-.0693-.76344.0542-.11861.0593-.22135.1391-.30824.2393-.08688.1001-.15129.2131-.19323.3389-.04193.1258-.0582.2549-.0488.3871.0094.1323.04376.2578.10306.3764l1.32092 2.6418c.1235.247.31623.4142.5782.5015.26198.0873.51646.0692.76345-.0543.01854-.0092.03678-.0191.05471-.0295s.03552-.0214.05277-.0329l6.00002-4c.1103-.0735.2024-.1654.2762-.2756.0738-.1101.1237-.2303.1497-.3603s.0261-.2601.0004-.3902c-.0258-.1301-.0754-.2503-.149-.3606-.1531-.2298-.3651-.3717-.6359-.4259-.2708-.0541-.521-.0046-.7508.1485l-1.94319 1.2955-3.1143 2.0762zm11.27691.8317c-.2761 0-.5118.0976-.7071.2929s-.2929.431-.2929.7071.0976.5118.2929.7071.431.2929.7071.2929h14c.2761 0 .5118-.0976.7071-.2929s.2929-.431.2929-.7071-.0976-.5118-.2929-.7071-.431-.2929-.7071-.2929z" fill-rule="evenodd"/></g></svg>
+					</a>
+                                <div class="dropdown-menu dropdown-menu-end p-0">
+                                    <div class="card mb-0">
+                                        <div class="card-header border-0 d-block h-auto">
+                                            <ul class="d-flex align-items-center justify-content-around">
+                                                <li class="nav-item dropdown notification_dropdown">
+                                                    <a class="nav-link  menu-wallet" href="javascript:void(0);">
+													<svg id="Layer_1" enable-background="new 0 0 512 512" height="18" viewBox="0 0 512 512" width="18" xmlns="http://www.w3.org/2000/svg"><g><path d="m174 240h-108c-36.393 0-66-29.607-66-66v-108c0-36.393 29.607-66 66-66h108c36.393 0 66 29.607 66 66v108c0 36.393-29.607 66-66 66zm-108-208c-18.748 0-34 15.252-34 34v108c0 18.748 15.252 34 34 34h108c18.748 0 34-15.252 34-34v-108c0-18.748-15.252-34-34-34z"/><path d="m446 240h-108c-36.393 0-66-29.607-66-66v-108c0-36.393 29.607-66 66-66h108c36.393 0 66 29.607 66 66v108c0 36.393-29.607 66-66 66zm-108-208c-18.748 0-34 15.252-34 34v108c0 18.748 15.252 34 34 34h108c18.748 0 34-15.252 34-34v-108c0-18.748-15.252-34-34-34z"/><path d="m392 512c-66.168 0-120-53.832-120-120s53.832-120 120-120 120 53.832 120 120-53.832 120-120 120zm0-208c-48.523 0-88 39.477-88 88s39.477 88 88 88 88-39.477 88-88-39.477-88-88-88z"/><path d="m174 512h-108c-36.393 0-66-29.607-66-66v-108c0-36.393 29.607-66 66-66h108c36.393 0 66 29.607 66 66v108c0 36.393-29.607 66-66 66zm-108-208c-18.748 0-34 15.252-34 34v108c0 18.748 15.252 34 34 34h108c18.748 0 34-15.252 34-34v-108c0-18.748-15.252-34-34-34z"/></g></svg>
+											</a>
+                                                </li>
+                                                <li class="nav-item dropdown notification_dropdown">
+                                                    <a class="nav-link bell dz-theme-mode" href="javascript:void(0);">
+													<svg id="icon-light" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+											<svg id="icon-dark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+											</a>
+                                                </li>
+                                                <li class="nav-item dropdown notification_dropdown">
+                                                    <a class="nav-link bell dz-fullscreen" href="javascript:void(0);">
+												<svg id="icon-full" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" style="stroke-dasharray: 37, 57; stroke-dashoffset: 0;"></path></svg>
+												<svg id="icon-minimize" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="A098AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minimize"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" style="stroke-dasharray: 37, 57; stroke-dashoffset: 0;"></path></svg>
+											</a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown notification_dropdown search-area-header">
+                                <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+							<svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M27.6 25.8L22 20.2C23.3 18.5 24.1 16.4 24.1 14.1C24.1 8.60001 19.6 4.10001 14.1 4.10001C8.6 4.10001 4 8.60001 4 14.1C4 19.6 8.5 24.1 14 24.1C16.3 24.1 18.5 23.3 20.2 21.9L25.8 27.5C26 27.7 26.4 27.9 26.7 27.9C27 27.9 27.3 27.8 27.6 27.5C28.1 27.1 28.1 26.3 27.6 25.8ZM6.5 14.1C6.5 10 9.9 6.60001 14 6.60001C18.1 6.60001 21.5 10 21.5 14.1C21.5 18.2 18.1 21.6 14 21.6C9.9 21.6 6.5 18.3 6.5 14.1Z" fill="#A098AE"/>
+							</svg>
+						
+						</a>
+                                <div class="dropdown-menu dropdown-menu-end p-0 rounded">
+                                    <div class="card mb-0">
+                                        <div class="card-body px-0">
+                                            <div class="px-3">
+                                                <div class="input-group search-area w-100">
+                                                    <input type="text" class="form-control" placeholder="Search here...">
+                                                    <span class="input-group-text"><a href="javascript:void(0)">
+												<svg width="15" height="15" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M17.5605 15.4395L13.7527 11.6317C14.5395 10.446 15 9.02625 15 7.5C15 3.3645 11.6355 0 7.5 0C3.3645 0 0 3.3645 0 7.5C0 11.6355 3.3645 15 7.5 15C9.02625 15 10.446 14.5395 11.6317 13.7527L15.4395 17.5605C16.0245 18.1462 16.9755 18.1462 17.5605 17.5605C18.1462 16.9747 18.1462 16.0252 17.5605 15.4395V15.4395ZM2.25 7.5C2.25 4.605 4.605 2.25 7.5 2.25C10.395 2.25 12.75 4.605 12.75 7.5C12.75 10.395 10.395 12.75 7.5 12.75C4.605 12.75 2.25 10.395 2.25 7.5V7.5Z" fill="#01A3FF"></path>
+												</svg>
+											</a></span>
+                                                </div>
+                                                <h6 class="my-2 mt-3">Recently Searched:</h6>
+                                            </div>
+                                            <div class="dlab-scroll px-3 mt-3 height300">
+                                                <ul class="d-flex align-items-center mb-3">
+                                                    <li>
+                                                        <img src="../public/assets/images/avatar/1.jpg" class="avatar avatar-sm" alt="">
+                                                        <a href="javascript:void(0);" class="ms-2">Benjamin</a>
+
+                                                    </li>
+                                                    <li class="ms-auto"><i class="fa-solid fa-trash"></i></li>
+                                                </ul>
+                                                <ul class="d-flex align-items-center mb-3">
+                                                    <li>
+                                                        <img src="../public/assets/images/avatar/2.jpg" class="avatar avatar-sm" alt="">
+                                                        <a href="javascript:void(0);" class="ms-2">Oliver</a>
+                                                    </li>
+                                                    <li class="ms-auto"><i class="fa-solid fa-trash"></i></li>
+                                                </ul>
+                                                <ul class="d-flex align-items-center mb-3">
+                                                    <li>
+                                                        <img src="../public/assets/images/avatar/1.jpg" class="avatar avatar-sm" alt="">
+                                                        <a href="javascript:void(0);" class="ms-2">Lucas</a>
+
+                                                    </li>
+                                                    <li class="ms-auto"><i class="fa-solid fa-trash"></i></li>
+                                                </ul>
+                                                <ul class="d-flex align-items-center mb-3">
+                                                    <li>
+                                                        <img src="../public/assets/images/avatar/2.jpg" class="avatar avatar-sm" alt="">
+                                                        <a href="javascript:void(0);" class="ms-2">Benjamin</a>
+
+                                                    </li>
+                                                    <li class="ms-auto"><i class="fa-solid fa-trash"></i></li>
+                                                </ul>
+                                                <ul class="d-flex align-items-center mb-3">
+                                                    <li>
+                                                        <img src="../public/assets/images/avatar/4.jpg" class="avatar avatar-sm" alt="">
+                                                        <a href="javascript:void(0);" class="ms-2">Benjamin</a>
+
+                                                    </li>
+                                                    <li class="ms-auto"><i class="fa-solid fa-trash"></i></li>
+                                                </ul>
+                                                <ul class="d-flex align-items-center mb-3">
+                                                    <li>
+                                                        <img src="../public/assets/images/avatar/3.jpg" class="avatar avatar-sm" alt="">
+                                                        <a href="javascript:void(0);" class="ms-2">Benjamin</a>
+
+                                                    </li>
+                                                    <li class="ms-auto"><i class="fa-solid fa-trash"></i></li>
+                                                </ul>
+                                                <ul class="d-flex align-items-center mb-3">
+                                                    <li>
+                                                        <img src="../public/assets/images/avatar/2.jpg" class="avatar avatar-sm" alt="">
+                                                        <a href="javascript:void(0);" class="ms-2">Benjamin</a>
+
+                                                    </li>
+                                                    <li class="ms-auto"><i class="fa-solid fa-trash"></i></li>
+                                                </ul>
+                                                <ul class="d-flex align-items-center mb-3">
+                                                    <li>
+                                                        <img src="../public/assets/images/avatar/1.jpg" class="avatar avatar-sm" alt="">
+                                                        <a href="javascript:void(0);" class="ms-2">Benjamin</a>
+
+                                                    </li>
+                                                    <li class="ms-auto"><i class="fa-solid fa-trash"></i></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link  menu-wallet" href="javascript:void(0);">
+							<svg id="Layer_2" enable-background="new 0 0 512 512" height="18" viewBox="0 0 512 512" width="18" xmlns="http://www.w3.org/2000/svg"><g><path d="m174 240h-108c-36.393 0-66-29.607-66-66v-108c0-36.393 29.607-66 66-66h108c36.393 0 66 29.607 66 66v108c0 36.393-29.607 66-66 66zm-108-208c-18.748 0-34 15.252-34 34v108c0 18.748 15.252 34 34 34h108c18.748 0 34-15.252 34-34v-108c0-18.748-15.252-34-34-34z"/><path d="m446 240h-108c-36.393 0-66-29.607-66-66v-108c0-36.393 29.607-66 66-66h108c36.393 0 66 29.607 66 66v108c0 36.393-29.607 66-66 66zm-108-208c-18.748 0-34 15.252-34 34v108c0 18.748 15.252 34 34 34h108c18.748 0 34-15.252 34-34v-108c0-18.748-15.252-34-34-34z"/><path d="m392 512c-66.168 0-120-53.832-120-120s53.832-120 120-120 120 53.832 120 120-53.832 120-120 120zm0-208c-48.523 0-88 39.477-88 88s39.477 88 88 88 88-39.477 88-88-39.477-88-88-88z"/><path d="m174 512h-108c-36.393 0-66-29.607-66-66v-108c0-36.393 29.607-66 66-66h108c36.393 0 66 29.607 66 66v108c0 36.393-29.607 66-66 66zm-108-208c-18.748 0-34 15.252-34 34v108c0 18.748 15.252 34 34 34h108c18.748 0 34-15.252 34-34v-108c0-18.748-15.252-34-34-34z"/></g></svg>
+						</a>
+                            </li>
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link bell dz-theme-mode" href="javascript:void(0);">
+							<i id="icon-light-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></i>
+							<i id="icon-dark-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></i>
+						</a>
+                            </li>
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link bell dz-fullscreen" href="javascript:void(0);">
+							<svg id="icon-full-1" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" style="stroke-dasharray: 37, 57; stroke-dashoffset: 0;"></path></svg>
+							<svg id="icon-minimize-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="A098AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minimize"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" style="stroke-dasharray: 37, 57; stroke-dashoffset: 0;"></path></svg>
+						</a>
+                            </li>
+
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link bell-link" href="javascript:void(0);">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A098AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>						
+						</a>
+                            </li>
+                            <li class="nav-item bell-icon blink dropdown notification_dropdown">
+                                <a class="nav-link  " href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+					<svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M25.3677 18.9391V9.86768C25.3677 4.70215 21.1655 0.5 16 0.5C10.8345 0.5 6.63232 4.70215 6.63232 9.86768V18.9397C4.96704 19.4224 3.73828 20.9544 3.73828 22.8374C3.73828 25.0386 5.5293 26.8296 7.73096 26.8296H11.377V26.877C11.377 29.4263 13.4507 31.5 16 31.5C18.5493 31.5 20.6231 29.4263 20.6231 26.8769V26.8296H24.2691C26.4707 26.8296 28.2617 25.0386 28.2617 22.7583C28.2617 20.9406 27.033 19.4198 25.3677 18.9391ZM9.63232 9.86768C9.63232 6.35645 12.4888 3.5 16 3.5C19.5112 3.5 22.3677 6.35645 22.3677 9.86768V18.7661H9.63232V9.86768ZM17.6231 26.8769C17.6231 27.772 16.895 28.5 16 28.5C15.105 28.5 14.377 27.772 14.377 26.8769V26.8296H17.623V26.8769H17.6231ZM24.269 23.8296H7.73096C7.1836 23.8296 6.73828 23.3843 6.73828 22.7583C6.73828 22.2114 7.18359 21.7661 7.73096 21.7661H24.2691C24.8164 21.7661 25.2617 22.2114 25.2617 22.8374C25.2617 23.3843 24.8164 23.8296 24.269 23.8296Z" fill="#A098AE"/>
+						</svg>		
+						</a>
+
+                        <!--**********************************
+	
+
+                                <div class="dropdown-menu dropdown-menu-end of-visible">
+                                    <div class="dropdown-header">
+                                        <h4 class="title mb-0">Notification</h4>
+                                        <a href="javascript:void(0);" class="d-none"><i class="flaticon-381-settings-6"></i></a>
+                                    </div>
+                                    <div id="DZ_W_Notification1" class="widget-media dlab-scroll p-3" style="height:380px;">
+                                        <ul class="timeline">
+                                            <li>
+                                                <div class="timeline-panel">
+                                                    <div class="media me-2">
+                                                        <img alt="image" width="50" src="../public/assets/images/avatar/1.jpg">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="mb-1">Dr sultads Send you Photo</h6>
+                                                        <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-panel">
+                                                    <div class="media me-2 media-info">
+                                                        KG
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="mb-1">Resport created successfully</h6>
+                                                        <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-panel">
+                                                    <div class="media me-2 media-success">
+                                                        <i class="fa fa-home"></i>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="mb-1">Reminder : Treatment Time!</h6>
+                                                        <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-panel">
+                                                    <div class="media me-2">
+                                                        <img alt="image" width="50" src="../public/assets/images/avatar/1.jpg">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="mb-1">Dr sultads Send you Photo</h6>
+                                                        <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-panel">
+                                                    <div class="media me-2 media-danger">
+                                                        KG
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="mb-1">Resport created successfully</h6>
+                                                        <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-panel">
+                                                    <div class="media me-2 media-primary">
+                                                        <i class="fa fa-home"></i>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="mb-1">Reminder : Treatment Time!</h6>
+                                                        <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a class="all-notification" href="javascript:void(0);">See all notifications <i class="ti-arrow-end"></i></a>
+                                </div>
+                            </li>
+                          
+***********************************-->
+
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link me-0 " href="javascript:void(0);" data-bs-toggle="dropdown">
+							<svg width="20" class="setting-svg" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M12.2631 2.66667L11.4167 6.46615C10.9353 6.69779 10.4752 6.96458 10.0339 7.26563L6.32035 6.09636L2.58337 12.5703L5.39848 15.1484C5.28849 15.9648 5.33831 16.3672 5.39848 16.8516L2.58337 19.4297L6.32035 25.9037L10.0339 24.7344C10.4752 25.0354 10.9353 25.3022 11.4167 25.5339L12.2631 29.3333H19.737L20.5834 25.5339C21.0647 25.3022 21.5249 25.0354 21.9662 24.7344L25.6797 25.9037L29.4167 19.4297L26.6016 16.8516C26.6246 16.5682 26.6664 16.2845 26.6667 16C26.6678 15.7069 26.6216 15.4108 26.6016 15.1484L29.4167 12.5703L25.6797 6.09636L21.9662 7.26563C21.5249 6.96458 21.0647 6.69779 20.5834 6.46615L19.737 2.66667H12.2631ZM14.4037 5.33334H17.5964L18.2552 8.29167L18.9167 8.55209C19.6649 8.84512 20.3644 9.24846 20.9922 9.75001L21.5495 10.1927L24.4401 9.28386L26.0365 12.0495L23.8021 14.099L23.9089 14.8021C24.0346 15.5797 24.0101 16.4746 23.9089 17.1979L23.8021 17.901L26.0365 19.9505L24.4401 22.7162L21.5495 21.8073L20.9922 22.25C20.3644 22.7516 19.6649 23.1549 18.9167 23.4479L18.2552 23.7083L17.5964 26.6667H14.4037L13.7448 23.7083L13.0834 23.4479C12.3351 23.1549 11.6357 22.7516 11.0079 22.25L10.4506 21.8073L7.55994 22.7162L5.96358 19.9505L8.19796 17.901L8.09119 17.1979C7.96095 16.4046 7.98095 15.4967 8.09119 14.8021L8.19796 14.099L5.96358 12.0495L7.55994 9.28386L10.4506 10.1927L11.0079 9.75001C11.6357 9.24846 12.3351 8.84512 13.0834 8.55209L13.7448 8.29167L14.4037 5.33334ZM16 10.6667C13.0703 10.6667 10.6667 13.0703 10.6667 16C10.6667 18.9297 13.0703 21.3333 16 21.3333C18.9298 21.3333 21.3334 18.9297 21.3334 16C21.3334 13.0703 18.9298 10.6667 16 10.6667ZM16 13.3333C17.4886 13.3333 18.6667 14.5115 18.6667 16C18.6667 17.4886 17.4886 18.6667 16 18.6667C14.5115 18.6667 13.3334 17.4886 13.3334 16C13.3334 14.5115 14.5115 13.3333 16 13.3333Z" fill="#A098AE"/>
+							</svg>
+
+						</a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <div id="DZ_W_TimeLine02" class="widget-timeline dlab-scroll style-1 p-3 height370">
+                                        <ul class="timeline">
+                                            <li>
+                                                <div class="timeline-badge primary"></div>
+                                                <a class="timeline-panel text-muted" href="javascript:void(0);">
+											<span>10 minutes ago</span>
+											<h6 class="mb-0">Youtube, a video-sharing website, goes live <strong class="text-primary">$500</strong>.</h6>
+										</a>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-badge info">
+                                                </div>
+                                                <a class="timeline-panel text-muted" href="javascript:void(0);">
+											<span>20 minutes ago</span>
+											<h6 class="mb-0">New order placed <strong class="text-info">#XF-2356.</strong></h6>
+											<p class="mb-0">Quisque a consequat ante Sit amet magna at volutapt...</p>
+										</a>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-badge danger">
+                                                </div>
+                                                <a class="timeline-panel text-muted" href="javascript:void(0);">
+											<span>30 minutes ago</span>
+											<h6 class="mb-0">john just buy your product <strong class="text-warning">Sell $250</strong></h6>
+										</a>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-badge success">
+                                                </div>
+                                                <a class="timeline-panel text-muted" href="javascript:void(0);">
+											<span>15 minutes ago</span>
+											<h6 class="mb-0">StumbleUpon is acquired by eBay. </h6>
+										</a>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-badge warning">
+                                                </div>
+                                                <a class="timeline-panel text-muted" href="javascript:void(0);">
+											<span>20 minutes ago</span>
+											<h6 class="mb-0">Mashable, a news website and blog, goes live.</h6>
+										</a>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-badge dark">
+                                                </div>
+                                                <a class="timeline-panel text-muted" href="javascript:void(0);">
+											<span>20 minutes ago</span>
+											<h6 class="mb-0">Mashable, a news website and blog, goes live.</h6>
+										</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="dropdown header-profile2">
+                                    <a class="nav-link ms-0" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="header-info2 d-flex align-items-center">
+                                            <div class="d-flex align-items-center sidebar-info">
+
+                                            </div>
+                                            
+                                            <img src="../public/assets/images/logo.png" alt="">
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end pb-0" style="">
+                                        <div class="card mb-0">
+                                            <div class="card-header p-3">
+                                                <ul class="d-flex align-items-center">
+                                                    <li>
+                                                        <img src="../public/assets/images/user.jpg" class="ms-0" alt="">
+                                                    </li>
+                                                    <li class="ms-2">
+                                                        <h4 class="mb-0">Nella Vita</h4>
+                                                        <span>Admin</span>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                            <div class="card-body p-3">
+                                                <a href="../app_profile" class="dropdown-item ai-icon ">
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<polygon points="0 0 24 0 24 24 0 24"/>
+													<path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+													<path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="var(--primary)" fill-rule="nonzero"/>
+												</g>
+											</svg>
+											<span class="ms-2">Profile </span>
+										</a>
+                                                <a href="../chat" class="dropdown-item ai-icon ">
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect x="0" y="0" width="24" height="24"/>
+													<path d="M21.9999843,15.009808 L22.0249378,15 L22.0249378,19.5857864 C22.0249378,20.1380712 21.5772226,20.5857864 21.0249378,20.5857864 C20.7597213,20.5857864 20.5053674,20.4804296 20.317831,20.2928932 L18.0249378,18 L5,18 C3.34314575,18 2,16.6568542 2,15 L2,6 C2,4.34314575 3.34314575,3 5,3 L19,3 C20.6568542,3 22,4.34314575 22,6 L22,15 C22,15.0032706 21.9999948,15.0065399 21.9999843,15.009808 Z M6.16794971,10.5547002 C7.67758127,12.8191475 9.64566871,14 12,14 C14.3543313,14 16.3224187,12.8191475 17.8320503,10.5547002 C18.1384028,10.0951715 18.0142289,9.47430216 17.5547002,9.16794971 C17.0951715,8.86159725 16.4743022,8.98577112 16.1679497,9.4452998 C15.0109146,11.1808525 13.6456687,12 12,12 C10.3543313,12 8.9890854,11.1808525 7.83205029,9.4452998 C7.52569784,8.98577112 6.90482849,8.86159725 6.4452998,9.16794971 C5.98577112,9.47430216 5.86159725,10.0951715 6.16794971,10.5547002 Z" fill="var(--primary)"/>
+												</g>
+											</svg>
+											<span class="ms-2">Message </span>
+										</a>
+                                                <a href="../email_inbox" class="dropdown-item ai-icon ">
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect x="0" y="0" width="24" height="24"/>
+													<path d="M21,12.0829584 C20.6747915,12.0283988 20.3407122,12 20,12 C16.6862915,12 14,14.6862915 14,18 C14,18.3407122 14.0283988,18.6747915 14.0829584,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,12.0829584 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z" fill="#000000"/>
+													<circle fill="var(--primary)" opacity="0.3" cx="19.5" cy="17.5" r="2.5"/>
+												</g>
+											</svg>
+											<span class="ms-2">Notification </span>
+										</a>
+                                                <a href="javascript:void(0);" class="dropdown-item ai-icon ">
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect x="0" y="0" width="24" height="24"/>
+													<path d="M18.6225,9.75 L18.75,9.75 C19.9926407,9.75 21,10.7573593 21,12 C21,13.2426407 19.9926407,14.25 18.75,14.25 L18.6854912,14.249994 C18.4911876,14.250769 18.3158978,14.366855 18.2393549,14.5454486 C18.1556809,14.7351461 18.1942911,14.948087 18.3278301,15.0846699 L18.372535,15.129375 C18.7950334,15.5514036 19.03243,16.1240792 19.03243,16.72125 C19.03243,17.3184208 18.7950334,17.8910964 18.373125,18.312535 C17.9510964,18.7350334 17.3784208,18.97243 16.78125,18.97243 C16.1840792,18.97243 15.6114036,18.7350334 15.1896699,18.3128301 L15.1505513,18.2736469 C15.008087,18.1342911 14.7951461,18.0956809 14.6054486,18.1793549 C14.426855,18.2558978 14.310769,18.4311876 14.31,18.6225 L14.31,18.75 C14.31,19.9926407 13.3026407,21 12.06,21 C10.8173593,21 9.81,19.9926407 9.81,18.75 C9.80552409,18.4999185 9.67898539,18.3229986 9.44717599,18.2361469 C9.26485393,18.1556809 9.05191298,18.1942911 8.91533009,18.3278301 L8.870625,18.372535 C8.44859642,18.7950334 7.87592081,19.03243 7.27875,19.03243 C6.68157919,19.03243 6.10890358,18.7950334 5.68746499,18.373125 C5.26496665,17.9510964 5.02757002,17.3784208 5.02757002,16.78125 C5.02757002,16.1840792 5.26496665,15.6114036 5.68716991,15.1896699 L5.72635306,15.1505513 C5.86570889,15.008087 5.90431906,14.7951461 5.82064513,14.6054486 C5.74410223,14.426855 5.56881236,14.310769 5.3775,14.31 L5.25,14.31 C4.00735931,14.31 3,13.3026407 3,12.06 C3,10.8173593 4.00735931,9.81 5.25,9.81 C5.50008154,9.80552409 5.67700139,9.67898539 5.76385306,9.44717599 C5.84431906,9.26485393 5.80570889,9.05191298 5.67216991,8.91533009 L5.62746499,8.870625 C5.20496665,8.44859642 4.96757002,7.87592081 4.96757002,7.27875 C4.96757002,6.68157919 5.20496665,6.10890358 5.626875,5.68746499 C6.04890358,5.26496665 6.62157919,5.02757002 7.21875,5.02757002 C7.81592081,5.02757002 8.38859642,5.26496665 8.81033009,5.68716991 L8.84944872,5.72635306 C8.99191298,5.86570889 9.20485393,5.90431906 9.38717599,5.82385306 L9.49484664,5.80114977 C9.65041313,5.71688974 9.7492905,5.55401473 9.75,5.3775 L9.75,5.25 C9.75,4.00735931 10.7573593,3 12,3 C13.2426407,3 14.25,4.00735931 14.25,5.25 L14.249994,5.31450877 C14.250769,5.50881236 14.366855,5.68410223 14.552824,5.76385306 C14.7351461,5.84431906 14.948087,5.80570889 15.0846699,5.67216991 L15.129375,5.62746499 C15.5514036,5.20496665 16.1240792,4.96757002 16.72125,4.96757002 C17.3184208,4.96757002 17.8910964,5.20496665 18.312535,5.626875 C18.7350334,6.04890358 18.97243,6.62157919 18.97243,7.21875 C18.97243,7.81592081 18.7350334,8.38859642 18.3128301,8.81033009 L18.2736469,8.84944872 C18.1342911,8.99191298 18.0956809,9.20485393 18.1761469,9.38717599 L18.1988502,9.49484664 C18.2831103,9.65041313 18.4459853,9.7492905 18.6225,9.75 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+													<path d="M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" fill="#000000"/>
+												</g>
+											</svg>
+											<span class="ms-2">Settings </span>
+										</a>
+
+                                            </div>
+                                            <div class="card-footer text-center p-3">
+                                                <a href="../page_login" class="dropdown-item ai-icon btn btn-primary light">
+											<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+											<span class="ms-2 text-primary">Logout </span>
+										</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+	Header end 
+***********************************-->
+         <!--**********************************
+    Sidebar start
+***********************************-->
+<div class="dlabnav">
+    <div class="dlabnav-scroll">
+        <ul class="metismenu" id="menu">
+  <style>
+    .nav-text,
+    .material-symbols-outlined {
+        color: rgb(255, 255, 255) !important;
+    }
+</style>
+
+<style>
+    /* Force both text and icon to black */
+    li a.has-arrow .nav-text,
+    li a.has-arrow .material-symbols-outlined {
+        color: rgb(255, 255, 255) !important;
+        fill: rgb(255, 255, 255) !important; /* helps if icons are using SVG fill */
+    }
+</style>
+
+<li>
+    <a class="has-arrow" href="../Dashboard.html" aria-expanded="false">
+        <i class="material-symbols-outlined">dashboard</i>
+        <span class="nav-text">Dashboard</span>
+    </a>
+</li>
+
+<li>
+    <a class="has-arrow" href="../user managment.html" aria-expanded="false">
+        <i class="material-symbols-outlined">manage_accounts</i>
+        <span class="nav-text">Manage Users</span>
+    </a>
+</li>
+<li>
+    <a class="has-arrow" href="../Customer & Accounts.html" aria-expanded="false">
+        <i class="material-symbols-outlined">group</i>
+        <span class="nav-text">Customers & Accounts</span>
+    </a>
+</li>
+
+<li>
+    <a class="has-arrow" href="../Rate Card.html" aria-expanded="false">
+        <i class="material-symbols-outlined">sell</i>
+        <span class="nav-text">Rate Card</span>
+    </a>
+</li>
+
+<li>
+    <a class="has-arrow" href="../Purchase Order.html" aria-expanded="false" onclick="toggleDropdown(this)">
+        <i class="material-symbols-outlined">receipt_long</i>
+        <span class="nav-text">Purchase Orders</span>
+    </a>
+</li>
+
+<li>
+    <a class="has-arrow" href="../Billing Run.html" aria-expanded="false" onclick="toggleDropdown(this)">
+        <i class="material-symbols-outlined">request_quote</i>
+        <span class="nav-text">Billing Runs</span>
+    </a>
+</li>
+<li>
+    <a class="has-arrow" href="../Billing Run.html" aria-expanded="false" onclick="toggleDropdown(this)">
+        <i class="material-symbols-outlined">receipt_long</i>
+        <span class="nav-text">Monitor Billing</span>
+    </a>
+</li>
+
+
+<li>
+    <a class="has-arrow" href="javascript:void(0);" aria-expanded="false" onclick="toggleDropdown(this)">
+        <i class="material-symbols-outlined">error_outline</i>
+        <span class="nav-text">Exceptions</span>
+    </a>
+</li>
+
+<li>
+    <a class="has-arrow" href="javascript:void(0);" aria-expanded="false" onclick="toggleDropdown(this)">
+        <i class="material-symbols-outlined">history</i>
+        <span class="nav-text">Audit Log</span>
+    </a>
+</li>
+
+<li>
+    <a class="has-arrow" href="javascript:void(0);" aria-expanded="false" onclick="toggleDropdown(this)">
+        <i class="material-symbols-outlined">settings</i>
+        <span class="nav-text">Settings</span>
+    </a>
+</li>
+
+
+           
+        </ul>
+    </div>
+</div>
+
+        <!--**********************************
+    Sidebar end
+***********************************-->
+
+
+
+
+
+
+<!--**********************************
+    Content body start
+***********************************-->
+<div class="content-body default-height">
+  <div class="container-fluid">
+
+    <!-- Fonts (recommended to move to <head>) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet">
+
+    <!--  CSS -->
+    <link rel="stylesheet" href="./style/Step_Badges.css">
+    <link rel="stylesheet" href="./style/Ticket_upload&Validation.css">
+
+    <div class="wrap">
+      <!-- STEPPER HEADER -->
+      <div class="stepper" id="stepper">
+        <div class="step " data-step="1">
+          <div class="badge">1</div>
+          <div class="step-label">Ticket Data Distribution</div>
+        </div>
+
+        <a href="../Step 2 Code file/Billing Run.html" class="step-link">
+  <div class="step" data-step="2">
+    <div class="badge">2</div>
+    <div class="step-label">Rate Card Assignment</div>
+  </div>
+</a>
+
+
+        <div class="step active" data-step="3">
+          <div class="badge">3</div>
+          <div class="step-label">Manual & Ai Computation and Verification</div>
+        </div>
+
+        <div class="step" data-step="4">
+          <div class="badge">4</div>
+          <div class="step-label">Consolidation</div>
+        </div>
+
+        <div class="step" data-step="5">
+          <div class="badge">5</div>
+          <div class="step-label">Review and Monitoring</div>
+        </div>
+
+        <div class="step" data-step="6">
+          <div class="badge">6</div>
+          <div class="step-label">Query Resolution &amp; Resubmission</div>
+        </div>
+
+        <div class="step" data-step="7">
+          <div class="badge">7</div>
+          <div class="step-label">Final Approval &amp; Invoice Preparation</div>
+        </div>
+      </div>
+
+      <!-- STEP CONTENT AREA -->
+<div id="steps">
+
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  STEP 1 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+  <div class="step-content active" id="step-content-1">
+
+    
+  </div>
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  END STEP 1 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+
+
+
+
+
+  
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  STEP 2 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+  <div class="step-content" id="step-content-2">
+    
+  </div>
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  END STEP 2 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  STEP 3 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+  <div class="step-content" id="step-content-3">
+     <!-- Tabs Navigation -->
+    <div class="modal-tabs-container" id="modal-tabs-container">
+      <div class="tabs-scroll-wrapper">
+        <button class="modal-tab active" data-tab="overview" id="modal-tab-overview">
+          <i class="fas fa-tachometer-alt"></i> Overview
+          
+        </button>
+        <button class="modal-tab" data-tab="dedicated" id="modal-tab-dedicated">
+          <i class="fas fa-user-tie"></i> Dedicated
+          <span class="tab-badge" id="dedicated-count-badge">5</span>
+        </button>
+        <button class="modal-tab" data-tab="project" id="modal-tab-project">
+          <i class="fas fa-project-diagram"></i> Project
+          <span class="tab-badge" id="project-count-badge">3</span>
+        </button>
+        <button class="modal-tab" data-tab="calendar" id="modal-tab-calendar">
+          <i class="fas fa-calendar-alt"></i> Calendar
+          <span class="tab-badge" id="holiday-count-badge">3</span>
+        </button>
+        <button class="modal-tab" data-tab="band-version" id="modal-tab-band-version">
+  <i class="fas fa-code-branch"></i> Band Data Version
+  <span class="tab-badge" id="version-count-badge">6</span>
+</button>
+        <button class="modal-tab" data-tab="analytics" id="modal-tab-analytics">
+          <i class="fas fa-chart-bar"></i> Analytics
+          <span class="tab-badge" id="analytics-badge">New</span>
+        </button>
+        <button class="modal-tab" data-tab="ai-summary" id="modal-tab-ai-summary">
+          <i class="fas fa-robot"></i> AI Assistant
+        </button>
+        <button class="modal-tab" data-tab="settings" id="modal-tab-settings">
+          <i class="fas fa-cog"></i> Settings
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab Content Container -->
+    <div class="modal-content-container" id="modal-content-container">
+      
+      <!-- Overview Tab -->
+<div class="modal-tab-content active" id="overview-tab-content">
+  <div class="overview-header">
+    <h3><i class="fas fa-tachometer-alt"></i> Band Details Dashboard</h3>
+    <div class="overview-actions">
+      <button class="btn btn-primary" id="overview-refresh-btn">
+        <i class="fas fa-sync-alt"></i> Refresh
+      </button>
+      <button class="btn btn-secondary" id="overview-export-btn">
+        <i class="fas fa-download"></i> Export
+      </button>
+    </div>
+  </div>
+  
+  <!-- Customer/Account Selection with Search -->
+  <div class="overview-selection-card">
+    <div class="selection-header">
+      <i class="fas fa-filter"></i>
+      <h4>Data Selection & Search</h4>
+      <span class="selection-badge">Active</span>
+    </div>
+    
+    <!-- Search Box Section -->
+    <div class="search-box-section" id="overview-search-section">
+      <div class="search-box-wrapper">
+        <div class="search-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <input 
+          type="text" 
+          id="overview-global-search" 
+          class="overview-search-input"
+          placeholder="Search across all overview content (stats, actions, activity)..."
+          aria-label="Search overview content"
+        >
+        <button class="search-clear-btn" id="overview-search-clear" aria-label="Clear search">
+          <i class="fas fa-times"></i>
+        </button>
+        <button class="search-suggestions-btn" id="overview-search-suggestions" aria-label="Show search suggestions">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+      <div class="search-suggestions-container" id="overview-search-suggestions-container">
+        <!-- Suggestions will be populated dynamically -->
+        <div class="suggestion-section">
+          <h5>Quick Suggestions:</h5>
+          <div class="suggestion-tags">
+            <span class="suggestion-tag" data-search="HCL">HCL</span>
+            <span class="suggestion-tag" data-search="ABBVIE">ABBVIE</span>
+            <span class="suggestion-tag" data-search="EUC Support">EUC Support</span>
+            <span class="suggestion-tag" data-search="Dedicated">Dedicated</span>
+            <span class="suggestion-tag" data-search="Project">Project</span>
+            <span class="suggestion-tag" data-search="Band 2">Band 2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Filter Section -->
+    <div class="selection-filters">
+      <div class="filter-row">
+        <div class="filter-group">
+          <label for="overview-customer-select">Customer</label>
+          <select class="filter-input" id="overview-customer-select">
+            <option value="All customers" selected>All Customers</option>
+            <option value="HCL">HCL</option>
+            <option value="acme">Acme Corp</option>
+            <option value="coforge">COFORGE</option>
+            <option value="cognizant">Cognizant</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label for="overview-account-select">Account</label>
+          <select class="filter-input" id="overview-account-select">
+            <option value="hcl_abbvie" selected>HCL_ABBVIE</option>
+            <option value="hcl_abbvie_dss">HCL_ABBVIE DSS</option>
+            <option value="hcl_abbvie_he">HCL_ABBVIE H&amp;E</option>
+            <option value="hcl_adidas">HCL_ADIDAS</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label for="overview-ticket-select">Ticket (Optional)</label>
+          <select class="filter-input" id="overview-ticket-select">
+            <option value="">Select Ticket</option>
+            <option value="ticket-001">TICKET-001</option>
+            <option value="ticket-002">TICKET-002</option>
+            <option value="ticket-003">TICKET-003</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Quick Stats with Enhanced Features -->
+<div class="overview-stats-grid">
+  <div class="stat-card" id="overview-stat-total-resources" data-stat="total-resources" data-metric="8" data-tooltip="Total number of active technicians across all customers and accounts">
+    <div class="stat-icon">
+      <i class="fas fa-users"></i>
+    </div>
+    <div class="stat-content">
+      <div class="stat-value-wrapper">
+        <span class="stat-value" id="overview-stat-total-value">8</span>
+        <button class="stat-details-btn" aria-label="View details">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="stat-label">Total Resources</div>
+      <div class="stat-trend up">
+        <i class="fas fa-arrow-up"></i>
+        <span>+2 this month</span>
+      </div>
+    </div>
+    <div class="stat-tooltip" role="tooltip">
+      Total number of active technicians across all customers and accounts
+      <div class="tooltip-arrow"></div>
+    </div>
+  </div>
+  
+  <div class="stat-card" id="overview-stat-monthly-cost" data-stat="monthly-cost" data-metric="25420" data-currency="EUR" data-tooltip="Total monthly cost across all active resources">
+    <div class="stat-icon">
+      <i class="fas fa-money-bill-wave"></i>
+    </div>
+    <div class="stat-content">
+      <div class="stat-value-wrapper">
+        <div class="currency-selector-wrapper">
+          <span class="stat-value" id="overview-stat-cost-value">€25,420</span>
+          <div class="currency-selector-dropdown">
+            <button class="currency-selector-btn" aria-label="Change currency">
+              <i class="fas fa-exchange-alt"></i>
+            </button>
+            <div class="currency-dropdown-menu">
+              <div class="currency-option" data-currency="EUR" data-symbol="€">EUR - Euro</div>
+              <div class="currency-option" data-currency="USD" data-symbol="$">USD - US Dollar</div>
+              <div class="currency-option" data-currency="GBP" data-symbol="£">GBP - British Pound</div>
+              <div class="currency-option" data-currency="AED" data-symbol="د.إ">AED - UAE Dirham</div>
+              <div class="currency-option" data-currency="AUD" data-symbol="A$">AUD - Australian Dollar</div>
+            </div>
+          </div>
+        </div>
+        <button class="stat-details-btn" aria-label="View details">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="stat-label">Monthly Cost</div>
+      <div class="stat-trend down">
+        <i class="fas fa-arrow-down"></i>
+        <span>-5% from last month</span>
+      </div>
+    </div>
+    <div class="stat-tooltip" role="tooltip">
+      Total monthly cost across all active resources
+      <div class="tooltip-arrow"></div>
+    </div>
+  </div>
+  
+  <div class="stat-card" id="overview-stat-utilization" data-stat="utilization" data-metric="92" data-tooltip="Average utilization rate across all technicians">
+    <div class="stat-icon">
+      <i class="fas fa-chart-line"></i>
+    </div>
+    <div class="stat-content">
+      <div class="stat-value-wrapper">
+        <span class="stat-value" id="overview-stat-utilization-value">92%</span>
+        <button class="stat-details-btn" aria-label="View details">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="stat-label">Utilization Rate</div>
+      <div class="stat-trend up">
+        <i class="fas fa-arrow-up"></i>
+        <span>+3% this month</span>
+      </div>
+    </div>
+    <div class="stat-tooltip" role="tooltip">
+      Average utilization rate across all technicians (Worked Days / Total Available Days)
+      <div class="tooltip-arrow"></div>
+    </div>
+  </div>
+  
+  <div class="stat-card" id="overview-stat-sla-compliance" data-stat="sla-compliance" data-metric="88" data-tooltip="Overall SLA compliance percentage">
+    <div class="stat-icon">
+      <i class="fas fa-calendar-check"></i>
+    </div>
+    <div class="stat-content">
+      <div class="stat-value-wrapper">
+        <span class="stat-value" id="overview-stat-sla-value">88%</span>
+        <button class="stat-details-btn" aria-label="View details">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="stat-label">SLA Compliance</div>
+      <div class="stat-trend neutral">
+        <i class="fas fa-minus"></i>
+        <span>No change</span>
+      </div>
+    </div>
+    <div class="stat-tooltip" role="tooltip">
+      Overall SLA compliance percentage across all active contracts
+      <div class="tooltip-arrow"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Currency Conversion Panel (Hidden by default) -->
+<div class="currency-conversion-panel" id="currency-conversion-panel">
+  <div class="conversion-panel-header">
+    <h4><i class="fas fa-exchange-alt"></i> Currency Conversion</h4>
+    <button class="close-panel-btn" id="close-currency-panel" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="conversion-content">
+    <div class="conversion-row">
+      <label for="target-currency">Convert to:</label>
+      <select id="target-currency" class="conversion-select">
+        <option value="EUR" selected>EUR - Euro</option>
+        <option value="USD">USD - US Dollar</option>
+        <option value="GBP">GBP - British Pound</option>
+        <option value="AED">AED - UAE Dirham</option>
+        <option value="AUD">AUD - Australian Dollar</option>
+      </select>
+    </div>
+    <div class="conversion-row">
+      <label for="conversion-rate">Exchange Rate:</label>
+      <input type="number" id="conversion-rate" class="conversion-input" value="1.08" step="0.01" min="0">
+      <span class="rate-label">1 EUR = <span id="rate-display">1.08</span> USD</span>
+    </div>
+    <div class="conversion-row">
+      <label>Apply to:</label>
+      <div class="apply-options">
+        <label class="apply-option">
+          <input type="radio" name="apply-to" value="current" checked> Current view only
+        </label>
+        <label class="apply-option">
+          <input type="radio" name="apply-to" value="all"> All data
+        </label>
+      </div>
+    </div>
+    <div class="conversion-actions">
+      <button class="btn btn-secondary" id="cancel-conversion">Cancel</button>
+      <button class="btn btn-primary" id="apply-conversion">Apply Conversion</button>
+    </div>
+  </div>
+</div>
+  
+  <!-- Quick Actions -->
+  <div class="overview-actions-grid">
+    <div class="action-card" data-action="dedicated" onclick="switchModalTab('dedicated')">
+      <div class="action-icon">
+        <i class="fas fa-user-tie"></i>
+      </div>
+      <div class="action-content">
+        <h5>Dedicated Resources</h5>
+        <p>Manage technicians & monthly rates</p>
+        <div class="action-stats">
+          <span class="action-value">5</span>
+          <span class="action-label">Active</span>
+        </div>
+      </div>
+      <div class="action-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </div>
+    
+    <div class="action-card" data-action="project" onclick="switchModalTab('project')">
+      <div class="action-icon">
+        <i class="fas fa-project-diagram"></i>
+      </div>
+      <div class="action-content">
+        <h5>Project Management</h5>
+        <p>Handle project timelines & costs</p>
+        <div class="action-stats">
+          <span class="action-value">3</span>
+          <span class="action-label">Active</span>
+        </div>
+      </div>
+      <div class="action-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </div>
+    
+    <div class="action-card" data-action="calendar" onclick="switchModalTab('calendar')">
+      <div class="action-icon">
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+      <div class="action-content">
+        <h5>Calendar & Holidays</h5>
+        <p>Manage working days & holidays</p>
+        <div class="action-stats">
+          <span class="action-value">3</span>
+          <span class="action-label">This Month</span>
+        </div>
+      </div>
+      <div class="action-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </div>
+    
+    <div class="action-card" data-action="analytics" onclick="switchModalTab('analytics')">
+      <div class="action-icon">
+        <i class="fas fa-chart-bar"></i>
+      </div>
+      <div class="action-content">
+        <h5>Analytics & Reports</h5>
+        <p>View detailed analytics & insights</p>
+        <div class="action-stats">
+          <span class="action-value">12</span>
+          <span class="action-label">Reports</span>
+        </div>
+      </div>
+      <div class="action-arrow">
+        <i class="fas fa-arrow-right"></i>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Recent Activity -->
+  <div class="overview-activity-card">
+    <div class="activity-header">
+      <i class="fas fa-history"></i>
+      <h4>Recent Activity</h4>
+      <button class="btn btn-link" id="view-all-activity-btn">
+        View All <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+    
+    <div class="activity-list">
+      <div class="activity-item success">
+        <div class="activity-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="activity-content">
+          <div class="activity-title">Project "HCL EUC Support" updated</div>
+          <div class="activity-time">Just now</div>
+        </div>
+      </div>
+      
+      <div class="activity-item warning">
+        <div class="activity-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="activity-content">
+          <div class="activity-title">2 validation warnings detected</div>
+          <div class="activity-time">5 minutes ago</div>
+        </div>
+      </div>
+      
+      <div class="activity-item info">
+        <div class="activity-icon">
+          <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="activity-content">
+          <div class="activity-title">Currency rates updated</div>
+          <div class="activity-time">1 hour ago</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Dedicated Tab -->
+<div class="modal-tab-content" id="dedicated-tab-content">
+  <!-- Header Controls -->
+  <div class="tab-content-header">
+    <h3><i class="fas fa-user-tie"></i> Dedicated Resources Management</h3>
+    <div class="tab-controls-group">
+      <div id="dedicated-import-actions-group">
+        <button class="btn btn-primary" id="dedicated-import-csv-btn">
+          <i class="fas fa-file-import"></i> Import CSV
+        </button>
+        <button class="btn btn-secondary" id="dedicated-load-data-btn">
+          <i class="fas fa-database"></i> Load Version
+        </button>
+      </div>
+      
+      <div class="search-container" id="dedicated-search-container">
+        <i class="fas fa-search"></i>
+        <input type="text" id="dedicated-search-input" placeholder="Search technician, country, band...">
+        <button class="search-clear-btn" id="dedicated-search-clear">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <!-- Sort Dropdown (Button-based) -->
+      <div id="dedicated-sort-dropdown-container">
+        <button id="dedicated-sort-dropdown-btn">
+          <i class="fas fa-sort-amount-down-alt"></i> Sort By
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div id="dedicated-sort-dropdown-menu">
+          <a href="#" class="dedicated-sort-option" data-sort="technician" data-order="asc">Technician Name (A-Z)</a>
+          <a href="#" class="dedicated-sort-option" data-sort="technician" data-order="desc">Technician Name (Z-A)</a>
+          <a href="#" class="dedicated-sort-option" data-sort="country" data-order="asc">Country (A-Z)</a>
+          <a href="#" class="dedicated-sort-option" data-sort="country" data-order="desc">Country (Z-A)</a>
+          <a href="#" class="dedicated-sort-option" data-sort="monthlyRate" data-order="desc">Monthly Rate (High to Low)</a>
+          <a href="#" class="dedicated-sort-option" data-sort="monthlyRate" data-order="asc">Monthly Rate (Low to High)</a>
+          <a href="#" class="dedicated-sort-option" data-sort="workedDays" data-order="desc">Worked Days (High to Low)</a>
+          <a href="#" class="dedicated-sort-option" data-sort="workedDays" data-order="asc">Worked Days (Low to High)</a>
+          <!-- Add these options to the #dedicated-sort-dropdown-menu -->
+<a href="#" class="dedicated-sort-option" data-sort="totalCost" data-order="desc">Total Cost (High to Low)</a>
+<a href="#" class="dedicated-sort-option" data-sort="totalCost" data-order="asc">Total Cost (Low to High)</a>
+<a href="#" class="dedicated-sort-option" data-sort="slaPercentage" data-order="desc">SLA % (High to Low)</a>
+<a href="#" class="dedicated-sort-option" data-sort="slaPercentage" data-order="asc">SLA % (Low to High)</a>
+        </div>
+      </div>
+      
+      <div class="action-buttons" id="dedicated-action-buttons">
+        <button class="btn btn-warning" id="dedicated-recalculate-btn">
+          <i class="fas fa-sync-alt"></i> Recalculate
+        </button>
+        <button class="btn btn-success" id="dedicated-validate-btn">
+          <i class="fas fa-check-circle"></i> Validate
+        </button>
+        <button class="btn btn-primary" id="dedicated-export-btn">
+          <i class="fas fa-download"></i> Export
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Summary Section (Now on Top) -->
+  <div id="dedicated-summary-container">
+    <div class="dedicated-summary-item">
+      <span class="dedicated-summary-label">Total Technicians</span>
+      <span class="dedicated-summary-value" id="dedicated-total-technicians">0</span>
+    </div>
+    <div class="dedicated-summary-item">
+      <span class="dedicated-summary-label">Total Monthly Cost</span>
+      <span class="dedicated-summary-value" id="dedicated-total-monthly-cost">€0.00</span>
+    </div>
+    <div class="dedicated-summary-item">
+      <span class="dedicated-summary-label">Average Utilization</span>
+      <span class="dedicated-summary-value" id="dedicated-avg-utilization">0%</span>
+    </div>
+    <div class="dedicated-summary-item">
+      <span class="dedicated-summary-label">Holiday Impact</span>
+      <span class="dedicated-summary-value" id="dedicated-holiday-impact">€0.00</span>
+    </div>
+  </div>
+  
+  <!-- Filters Section -->
+  <div class="tab-filters-card" id="dedicated-filters-card">
+    <div class="filter-group dedicated-filter-group">
+      <label for="dedicated-customer-filter">Customer</label>
+      <select id="dedicated-customer-filter" class="filter-input">
+        <option value="All customers" selected>All Customers</option>
+        <option value="HCL">HCL</option>
+        <option value="acme">Acme Corp</option>
+      </select>
+    </div>
+    
+    <div class="filter-group dedicated-filter-group">
+      <label for="dedicated-account-filter">Account</label>
+      <select id="dedicated-account-filter" class="filter-input">
+        <option value="hcl_abbvie" selected>HCL_ABBVIE</option>
+        <option value="hcl_abbvie_dss">HCL_ABBVIE DSS</option>
+      </select>
+    </div>
+    
+    <div class="filter-group dedicated-filter-group">
+      <label for="dedicated-ticket-filter">Ticket</label>
+      <select id="dedicated-ticket-filter" class="filter-input">
+        <option value="">Select Ticket</option>
+      </select>
+    </div>
+    
+    <div class="filter-group dedicated-filter-group">
+      <label for="dedicated-currency-filter">Currency</label>
+      <select id="dedicated-currency-filter" class="filter-input">
+        <option value="">All Currencies</option>
+        <option value="EUR">EUR - Euro</option>
+        <option value="USD">USD - US Dollar</option>
+        <option value="GBP">GBP - British Pound</option>
+        <option value="ZAR">ZAR - South African Rand</option>
+        <option value="AED">AED - UAE Dirham</option>
+      </select>
+    </div>
+  </div>
+  
+  <!-- Data Table -->
+<div class="data-table-container" id="dedicated-table-container">
+  <div class="table-wrapper">
+    <table class="data-table" id="dedicated-data-table">
+      <thead>
+        <tr>
+          <th><input type="checkbox" id="dedicated-select-all" class="select-all-checkbox"></th>
+          <th>Technician Name</th>
+          <th>Country</th>
+          <th>Band</th>
+          <th>Variant</th>
+          <th>Monthly Rate</th>
+          <th>Working Days</th>
+          <th>Worked Days</th>
+          <th>Daily Rate</th>
+          <th>Actual Cost</th>
+          <th>Currency</th>
+          <th>Converted Currency</th>
+          <th>Conversion Rate</th>
+          <th>Converted Monthly Rate</th>
+          <th>Converted Daily Rate</th>
+          <th>Converted Actual Cost</th>
+          <th>Holiday Days</th>
+          <th>Adjusted Working Days</th>
+          <th>Adjusted Daily Rate</th>
+          <th>Total Cost (Excel)</th>
+          <!-- NEW COLUMNS ADDED BELOW -->
+          <th>OT Hours</th>
+          <th>OT per Hour Rate</th>
+          <th>OT Hours Cost</th>
+          <th>Weekend OT Hours</th>
+          <th>Weekend Rate</th>
+          <th>Weekend Cost</th>
+          <th>Travel/Extra Cost</th>
+          <th>Tax %</th>
+          <th>Tax Cost</th>
+          <th>Total Cost</th>
+          <th>Currency</th>
+          <th>SLA %</th>
+          <th>SLA Met</th>
+          <th>Reason for SLA not met</th>
+          <th>Attendance Approved</th>
+          <th>Service Month</th>
+          <th>Remarks</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="dedicated-table-body">
+        <!-- Data populated by JavaScript -->
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<!-- Version Selection Modal -->
+<div id="dedicated-version-modal-overlay">
+  <div id="dedicated-version-modal">
+    <div id="dedicated-version-modal-header">
+      <h3><i class="fas fa-code-branch"></i> Load Data Version</h3>
+      <button class="modal-close-btn" id="dedicated-close-version-modal">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div id="dedicated-version-modal-content">
+      <div id="dedicated-version-selection-section">
+        <label for="dedicated-version-select">Select Version to Load:</label>
+        <select id="dedicated-version-select" class="version-select-input">
+          <option value="">-- Select a version --</option>
+          <!-- Versions populated dynamically -->
+        </select>
+        
+        <div id="dedicated-version-details">
+          <!-- Version details shown here -->
+        </div>
+      </div>
+      
+      <div id="dedicated-version-preview-section">
+        <h4>Data Preview</h4>
+        <div id="dedicated-version-preview-table">
+          <!-- Preview table shown here -->
+        </div>
+      </div>
+      
+      <div id="dedicated-version-actions-section">
+        <div class="version-setup">
+          <h4>Setup New Version</h4>
+          <div id="dedicated-setup-fields">
+            <div class="dedicated-setup-field">
+              <label for="dedicated-new-version-name">Version Name:</label>
+              <input type="text" id="dedicated-new-version-name" placeholder="e.g., v0.01 Band Rate Card">
+            </div>
+            <div class="dedicated-setup-field">
+              <label for="dedicated-new-version-customer">Customer:</label>
+              <input type="text" id="dedicated-new-version-customer" placeholder="Enter customer name">
+            </div>
+            <div class="dedicated-setup-field">
+              <label for="dedicated-new-version-account">Account:</label>
+              <input type="text" id="dedicated-new-version-account" placeholder="Enter account name">
+            </div>
+            <div class="dedicated-setup-field">
+              <label for="dedicated-new-version-ticket">Ticket (Optional):</label>
+              <input type="text" id="dedicated-new-version-ticket" placeholder="Enter ticket number">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="dedicated-version-modal-footer">
+      <button class="btn btn-secondary" id="dedicated-cancel-version-load">Cancel</button>
+      <button class="btn btn-warning" id="dedicated-setup-new-version">Setup New Version</button>
+      <button class="btn btn-success" id="dedicated-confirm-version-load">Load Selected Version</button>
+    </div>
+  </div>
+</div>
+
+<!-- File Upload Modal -->
+<div id="dedicated-upload-modal-overlay">
+  <div id="dedicated-upload-modal">
+    <div id="dedicated-upload-modal-header">
+      <h3><i class="fas fa-file-import"></i> Import CSV File</h3>
+      <button class="modal-close-btn" id="dedicated-close-upload-modal">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div id="dedicated-upload-modal-content">
+      <div id="dedicated-upload-area">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <p>Drag & drop your CSV file here or click to browse</p>
+        <input type="file" id="dedicated-csv-file-input" accept=".csv" hidden>
+        <button class="btn btn-primary" id="dedicated-browse-files-btn">Browse Files</button>
+        <p class="dedicated-upload-hint">Supported format: CSV files only</p>
+      </div>
+      
+      <div id="dedicated-upload-preview" style="display: none;">
+        <h4>File Preview</h4>
+        <div id="dedicated-preview-table">
+          <!-- Preview shown here -->
+        </div>
+      </div>
+      
+      <div id="dedicated-upload-validation" style="display: none;">
+        <h4>Validation Results</h4>
+        <div id="dedicated-validation-results">
+          <!-- Validation results shown here -->
+        </div>
+      </div>
+    </div>
+    
+    <div id="dedicated-upload-modal-footer">
+      <button class="btn btn-secondary" id="dedicated-cancel-upload">Cancel</button>
+      <button class="btn btn-success" id="dedicated-confirm-upload" disabled>Import File</button>
+    </div>
+  </div>
+</div>
+     <!-- Project Tab -->
+<div class="modal-tab-content" id="project-tab-content">
+  <!-- Header Controls -->
+  <div class="tab-content-header">
+    <h3><i class="fas fa-project-diagram"></i> Project Management</h3>
+    <div class="tab-controls-group">
+      <div id="project-import-actions-group">
+        <button class="btn btn-primary" id="project-import-csv-btn">
+          <i class="fas fa-file-import"></i> Import CSV
+        </button>
+        <button class="btn btn-secondary" id="project-load-data-btn">
+          <i class="fas fa-database"></i> Load Version
+        </button>
+      </div>
+      
+      <div class="search-container" id="project-search-container">
+        <i class="fas fa-search"></i>
+        <input type="text" id="project-search-input" placeholder="Search project, technician, country...">
+        <button class="search-clear-btn" id="project-search-clear">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <!-- Sort Dropdown (Button-based) -->
+      <div id="project-sort-dropdown-container">
+        <button id="project-sort-dropdown-btn">
+          <i class="fas fa-sort-amount-down-alt"></i> Sort By
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div id="project-sort-dropdown-menu">
+          <a href="#" class="project-sort-option" data-sort="projectName" data-order="asc">Project Name (A-Z)</a>
+          <a href="#" class="project-sort-option" data-sort="projectName" data-order="desc">Project Name (Z-A)</a>
+          <a href="#" class="project-sort-option" data-sort="startDate" data-order="desc">Start Date (Newest)</a>
+          <a href="#" class="project-sort-option" data-sort="startDate" data-order="asc">Start Date (Oldest)</a>
+          <a href="#" class="project-sort-option" data-sort="totalCost" data-order="desc">Total Cost (High to Low)</a>
+          <a href="#" class="project-sort-option" data-sort="totalCost" data-order="asc">Total Cost (Low to High)</a>
+          <a href="#" class="project-sort-option" data-sort="duration" data-order="desc">Duration (Long to Short)</a>
+          <a href="#" class="project-sort-option" data-sort="duration" data-order="asc">Duration (Short to Long)</a>
+        </div>
+      </div>
+      
+      <div class="action-buttons" id="project-action-buttons">
+        <button class="btn btn-warning" id="project-recalculate-btn">
+          <i class="fas fa-sync-alt"></i> Recalculate
+        </button>
+        <button class="btn btn-success" id="project-validate-btn">
+          <i class="fas fa-check-circle"></i> Validate
+        </button>
+        <button class="btn btn-primary" id="project-export-btn">
+          <i class="fas fa-download"></i> Export
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Summary Section (Now on Top) -->
+  <div id="project-summary-container">
+    <div class="project-summary-item">
+      <span class="project-summary-label">Total Projects</span>
+      <span class="project-summary-value" id="project-total-projects">0</span>
+    </div>
+    <div class="project-summary-item">
+      <span class="project-summary-label">Total Project Cost</span>
+      <span class="project-summary-value" id="project-total-cost">€0.00</span>
+    </div>
+    <div class="project-summary-item">
+      <span class="project-summary-label">Average Duration</span>
+      <span class="project-summary-value" id="project-avg-duration">0 days</span>
+    </div>
+    <div class="project-summary-item">
+      <span class="project-summary-label">OT Impact</span>
+      <span class="project-summary-value" id="project-ot-impact">€0.00</span>
+    </div>
+  </div>
+  
+  <!-- Filters Section -->
+  <div id="project-filters-card">
+    <div class="project-filter-group">
+      <label for="project-duration-filter">Duration Type</label>
+      <select id="project-duration-filter" class="project-filter-input">
+        <option value="">All Durations</option>
+        <option value="short">Short Term</option>
+        <option value="long">Long Term</option>
+      </select>
+    </div>
+    
+    <div class="project-filter-group">
+      <label for="project-status-filter">Status</label>
+      <select id="project-status-filter" class="project-filter-input">
+        <option value="">All Status</option>
+        <option value="active">Active</option>
+        <option value="completed">Completed</option>
+        <option value="upcoming">Upcoming</option>
+      </select>
+    </div>
+    
+    <div class="project-filter-group">
+      <label for="project-currency-filter">Currency</label>
+      <select id="project-currency-filter" class="project-filter-input">
+        <option value="">All Currencies</option>
+        <option value="EUR">EUR - Euro</option>
+        <option value="USD">USD - US Dollar</option>
+        <option value="GBP">GBP - British Pound</option>
+        <option value="ZAR">ZAR - South African Rand</option>
+        <option value="AED">AED - UAE Dirham</option>
+      </select>
+    </div>
+    
+    <div class="project-filter-group">
+      <label for="project-sla-filter">SLA Status</label>
+      <select id="project-sla-filter" class="project-filter-input">
+        <option value="">All SLA</option>
+        <option value="met">SLA Met</option>
+        <option value="not-met">SLA Not Met</option>
+        <option value="partial">Partially Met</option>
+      </select>
+    </div>
+  </div>
+  
+  <!-- Data Table -->
+  <div class="data-table-container" id="project-table-container">
+    <div class="table-wrapper">
+      <table class="data-table" id="project-data-table">
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="project-select-all" class="select-all-checkbox"></th>
+            <th>Project Name</th>
+            <th>Technician</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Project Duration</th>
+            <th>Project Months</th>
+            <th>Country</th>
+            <th>Band</th>
+            <th>Monthly Rate</th>
+            <th>Estimated Total Cost</th>
+            <th>Converted Currency</th>
+            <th>Conversion Rate</th>
+            <th>Converted Monthly Rate</th>
+            <th>Converted Daily Rate</th>
+            <th>OT Rate per Hour</th>
+            <th>OT Cost</th>
+            <th>Weekend OT Hours</th>
+            <th>Weekend OT Rate</th>
+            <th>Weekend OT Cost</th>
+            <th>Travel/Extra Cost</th>
+            <th>Tax %</th>
+            <th>Tax Cost</th>
+            <th>Total Cost (Calculated)</th>
+            <th>SLA %</th>
+            <th>SLA Met</th>
+            <th>Service Month</th>
+            <th>Remarks</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="project-table-body">
+          <!-- Data populated by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Version Selection Modal -->
+<div id="project-version-modal-overlay">
+  <div id="project-version-modal">
+    <div id="project-version-modal-header">
+      <h3><i class="fas fa-code-branch"></i> Load Project Data Version</h3>
+      <button class="modal-close-btn" id="project-close-version-modal">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div id="project-version-modal-content">
+      <div id="project-version-selection-section">
+        <label for="project-version-select">Select Version to Load:</label>
+        <select id="project-version-select" class="project-version-select-input">
+          <option value="">-- Select a version --</option>
+          <!-- Versions populated dynamically -->
+        </select>
+        
+        <div id="project-version-details">
+          <!-- Version details shown here -->
+        </div>
+      </div>
+      
+      <div id="project-version-preview-section">
+        <h4>Data Preview</h4>
+        <div id="project-version-preview-table">
+          <!-- Preview table shown here -->
+        </div>
+      </div>
+      
+      <div id="project-version-actions-section">
+        <div class="version-setup">
+          <h4>Setup New Version</h4>
+          <div id="project-setup-fields">
+            <div class="project-setup-field">
+              <label for="project-new-version-name">Version Name:</label>
+              <input type="text" id="project-new-version-name" placeholder="e.g., v0.01 Project Rate Card">
+            </div>
+            <div class="project-setup-field">
+              <label for="project-new-version-client">Client:</label>
+              <input type="text" id="project-new-version-client" placeholder="Enter client name">
+            </div>
+            <div class="project-setup-field">
+              <label for="project-new-version-account">Account:</label>
+              <input type="text" id="project-new-version-account" placeholder="Enter account name">
+            </div>
+            <div class="project-setup-field">
+              <label for="project-new-version-project">Project (Optional):</label>
+              <input type="text" id="project-new-version-project" placeholder="Enter project ID">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="project-version-modal-footer">
+      <button class="btn btn-secondary" id="project-cancel-version-load">Cancel</button>
+      <button class="btn btn-warning" id="project-setup-new-version">Setup New Version</button>
+      <button class="btn btn-success" id="project-confirm-version-load">Load Selected Version</button>
+    </div>
+  </div>
+</div>
+
+<!-- File Upload Modal -->
+<div id="project-upload-modal-overlay">
+  <div id="project-upload-modal">
+    <div id="project-upload-modal-header">
+      <h3><i class="fas fa-file-import"></i> Import Project CSV File</h3>
+      <button class="modal-close-btn" id="project-close-upload-modal">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div id="project-upload-modal-content">
+      <div id="project-upload-area">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <p>Drag & drop your Project CSV file here or click to browse</p>
+        <input type="file" id="project-csv-file-input" accept=".csv" hidden>
+        <button class="btn btn-primary" id="project-browse-files-btn">Browse Files</button>
+        <p class="project-upload-hint">Supported format: CSV files only</p>
+      </div>
+      
+      <div id="project-upload-preview" style="display: none;">
+        <h4>File Preview</h4>
+        <div id="project-preview-table">
+          <!-- Preview shown here -->
+        </div>
+      </div>
+      
+      <div id="project-upload-validation" style="display: none;">
+        <h4>Validation Results</h4>
+        <div id="project-validation-results">
+          <!-- Validation results shown here -->
+        </div>
+      </div>
+    </div>
+    
+    <div id="project-upload-modal-footer">
+      <button class="btn btn-secondary" id="project-cancel-upload">Cancel</button>
+      <button class="btn btn-success" id="project-confirm-upload" disabled>Import File</button>
+    </div>
+  </div>
+</div>
+
+     
+<!-- Calendar Tab -->
+<div class="modal-tab-content" id="calendar-tab-content">
+  <!-- Header Controls -->
+  <div class="tab-content-header">
+    <h3><i class="fas fa-calendar-alt"></i> Holiday & Working Days Calendar</h3>
+    <div class="tab-controls-group">
+      <!-- Navigation Section -->
+      <div id="calendar-navigation">
+        <div class="nav-group">
+          <button class="btn btn-secondary" id="calendar-prev-month-btn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <span id="calendar-current-month">December 2025</span>
+          <button class="btn btn-secondary" id="calendar-next-month-btn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        
+        <div class="nav-group">
+          <div id="calendar-view-switcher">
+            <button id="calendar-month-view-btn" class="active" data-view="month">
+              <i class="fas fa-calendar-alt"></i> Month
+            </button>
+            <button id="calendar-week-view-btn" data-view="week">
+              <i class="fas fa-calendar-week"></i> Week
+            </button>
+            <button id="calendar-list-view-btn" data-view="list">
+              <i class="fas fa-list"></i> List
+            </button>
+          </div>
+        </div>
+        
+       <!-- Date Picker Group -->
+        <div class="nav-date-group">
+          <input type="month" id="calendar-date-picker" value="2025-12">
+        </div>
+      </div>
+      
+      <!-- Filters Section -->
+      <div id="calendar-filters">
+        <select id="calendar-technician-filter" class="filter-select-input">
+          <option value="">All Technicians</option>
+          <!-- Populated dynamically -->
+        </select>
+        <select id="calendar-country-filter" class="filter-select-input">
+          <option value="">All Countries</option>
+          <!-- Populated dynamically -->
+        </select>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="action-buttons" id="calendar-action-buttons">
+        <button class="btn btn-primary" id="calendar-add-holiday-btn">
+          <i class="fas fa-plus"></i> Add Holiday
+        </button>
+        <button class="btn btn-success" id="calendar-sync-btn">
+          <i class="fas fa-sync-alt"></i> Sync Holidays
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Calendar Container (Month View) -->
+  <div id="calendar-container" class="calendar-view" data-view="month">
+    <div id="calendar-header-row">
+      <div class="calendar-day-header">Mon</div>
+      <div class="calendar-day-header">Tue</div>
+      <div class="calendar-day-header">Wed</div>
+      <div class="calendar-day-header">Thu</div>
+      <div class="calendar-day-header">Fri</div>
+      <div class="calendar-day-header">Sat</div>
+      <div class="calendar-day-header">Sun</div>
+    </div>
+    
+    <div id="calendar-grid-container">
+      <!-- Calendar days populated by JavaScript -->
+    </div>
+  </div>
+  
+  <!-- Week View -->
+  <div id="calendar-week-container" class="calendar-view" data-view="week" style="display: none;">
+    <div id="calendar-week-grid">
+      <!-- Week view populated by JavaScript -->
+    </div>
+  </div>
+  
+  <!-- List View -->
+  <div id="calendar-list-container" class="calendar-view" data-view="list" style="display: none;">
+    <div id="calendar-list-content">
+      <!-- List view populated by JavaScript -->
+    </div>
+  </div>
+  
+  <!-- Calendar Legend -->
+  <div id="calendar-legend">
+    <div class="legend-item">
+      <div class="legend-color working-day"></div>
+      <span>Working Day</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color holiday"></div>
+      <span>Holiday</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color partial-work"></div>
+      <span>Partial Work</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color weekend"></div>
+      <span>Weekend</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color today"></div>
+      <span>Today</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color selected"></div>
+      <span>Selected</span>
+    </div>
+  </div>
+  
+  <!-- Holiday Details -->
+  <div id="holiday-details-container">
+    <div id="holiday-details-header">
+      <h4><i class="fas fa-info-circle"></i> Holiday Details</h4>
+      <button class="btn btn-secondary btn-sm" id="clear-selection-btn">
+        <i class="fas fa-times"></i> Clear Selection
+      </button>
+    </div>
+    <div id="holiday-details-content">
+      <p class="calendar-empty-message">Select a day or holiday to view details</p>
+    </div>
+  </div>
+</div>
+
+<!-- Context Menu -->
+<div id="calendar-context-menu">
+  <div class="context-menu-item" data-action="mark-working">
+    <i class="fas fa-briefcase"></i> Mark as Working Day
+  </div>
+  <div class="context-menu-item" data-action="mark-holiday">
+    <i class="fas fa-umbrella-beach"></i> Mark as Holiday
+  </div>
+  <div class="context-menu-item" data-action="mark-partial">
+    <i class="fas fa-clock"></i> Mark as Partial Work
+  </div>
+  <div class="context-menu-divider"></div>
+  <div class="context-menu-item" data-action="add-technician">
+    <i class="fas fa-user-plus"></i> Add Technician
+  </div>
+  <div class="context-menu-item" data-action="remove-technician">
+    <i class="fas fa-user-minus"></i> Remove Technician
+  </div>
+  <div class="context-menu-divider"></div>
+  <div class="context-menu-item" data-action="view-details">
+    <i class="fas fa-info-circle"></i> View Details
+  </div>
+  <div class="context-menu-item" data-action="edit-holiday">
+    <i class="fas fa-edit"></i> Edit Holiday
+  </div>
+  <div class="context-menu-item" data-action="delete-holiday">
+    <i class="fas fa-trash"></i> Delete Holiday
+  </div>
+</div>
+
+<!-- Add Holiday Modal -->
+<div id="add-holiday-modal-overlay">
+  <div id="add-holiday-modal">
+    <div id="add-holiday-modal-header">
+      <h3><i class="fas fa-calendar-plus"></i> Add Holiday / Working Day</h3>
+      <button class="modal-close-btn" id="close-holiday-modal">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div id="add-holiday-modal-content">
+      <div class="holiday-form-group">
+        <label for="holiday-name">Holiday Name / Description</label>
+        <input type="text" id="holiday-name" placeholder="e.g., Christmas Day, Public Holiday">
+      </div>
+      
+      <div class="holiday-form-group">
+        <label for="holiday-type">Day Type</label>
+        <select id="holiday-type">
+          <option value="holiday">Holiday</option>
+          <option value="working">Working Day</option>
+          <option value="partial">Partial Work Day</option>
+          <option value="weekend">Weekend (Override)</option>
+        </select>
+      </div>
+      
+      <div class="holiday-form-group">
+        <label for="holiday-start-date">Date Range</label>
+        <div id="holiday-date-range">
+          <input type="date" id="holiday-start-date" value="2025-12-25">
+          <span>to</span>
+          <input type="date" id="holiday-end-date" value="2025-12-25">
+        </div>
+      </div>
+      
+      <div class="holiday-form-group">
+        <label for="holiday-technician-select">Apply to Technicians</label>
+        <select id="holiday-technician-select" multiple>
+          <option value="all">All Technicians</option>
+          <!-- Populated dynamically -->
+        </select>
+        <small style="color: #7d7d8a; font-size: 11px;">Hold Ctrl/Cmd to select multiple technicians</small>
+      </div>
+      
+      <div class="holiday-form-group">
+        <label for="holiday-country">Country (Optional)</label>
+        <select id="holiday-country">
+          <option value="">All Countries</option>
+          <option value="Germany">Germany</option>
+          <option value="UK">United Kingdom</option>
+          <option value="France">France</option>
+          <option value="Spain">Spain</option>
+          <option value="Italy">Italy</option>
+          <option value="UAE">United Arab Emirates</option>
+        </select>
+      </div>
+      
+      <div class="holiday-form-group">
+        <label for="holiday-notes">Additional Notes</label>
+        <textarea id="holiday-notes" placeholder="Any additional information about this holiday..."></textarea>
+      </div>
+    </div>
+    
+    <div id="add-holiday-modal-footer">
+      <button class="btn btn-secondary" id="cancel-holiday">Cancel</button>
+      <button class="btn btn-success" id="save-holiday">Save Holiday</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Band Data Version Tab -->
+<div class="modal-tab-content" id="band-version-tab-content">
+  <!-- Header Controls -->
+  <div class="tab-content-header">
+    <h3><i class="fas fa-code-branch"></i> Band Data Version Management</h3>
+    <div class="tab-controls-group">
+      <!-- Filters Section -->
+      <div id="version-filters">
+        <input type="text" id="version-search-input" class="filter-input" placeholder="Search by customer, filename, or version ID...">
+        <select id="version-type-filter" class="filter-select-input">
+          <option value="">All Data Types</option>
+          <option value="Dedicated">Dedicated</option>
+          <option value="Project">Project</option>
+        </select>
+        <select id="version-customer-filter" class="filter-select-input">
+          <option value="">All Customers</option>
+          <option value="HCL">HCL</option>
+          <option value="Acme Corp">Acme Corp</option>
+          <option value="Tech Solutions">Tech Solutions</option>
+          <option value="Global Innovations">Global Innovations</option>
+        </select>
+        <select id="version-status-filter" class="filter-select-input">
+          <option value="">All Status</option>
+          <option value="processed">✅ Processed</option>
+          <option value="processing">⏳ Processing</option>
+          <option value="failed">❌ Failed</option>
+        </select>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="action-buttons" id="version-action-buttons">
+        <div class="toggle-group">
+          <span class="toggle-label">Show Comparison</span>
+          <label class="switch">
+            <input type="checkbox" id="version-comparison-toggle">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <button class="btn btn-primary" id="version-upload-btn">
+          <i class="fas fa-upload"></i> Upload New Version
+        </button>
+        <button class="btn btn-secondary" id="version-refresh-btn">
+          <i class="fas fa-redo"></i> Refresh
+        </button>
+        <button class="btn btn-outline" id="version-export-btn">
+          <i class="fas fa-download"></i> Export List
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bulk Actions -->
+  <div class="bulk-actions-container" id="version-bulk-actions">
+    <div class="bulk-selection-info">
+      <span id="selected-count">0</span> versions selected
+    </div>
+    <div class="bulk-action-buttons">
+      <button class="btn btn-secondary btn-sm" id="bulk-compare-btn" disabled>
+        <i class="fas fa-code-compare"></i> Compare Selected
+      </button>
+      <button class="btn btn-danger btn-sm" id="bulk-delete-btn" disabled>
+        <i class="fas fa-trash"></i> Delete Selected
+      </button>
+      <button class="btn btn-outline btn-sm" id="clear-selection-btn">
+        Clear Selection
+      </button>
+    </div>
+  </div>
+  
+  <!-- Version Management Table -->
+  <div class="version-table-container">
+    <div class="table-responsive">
+      <table id="version-management-table">
+        <thead>
+          <tr>
+            <th class="select-column">
+              <input type="checkbox" id="select-all-versions">
+            </th>
+            <th>Version ID</th>
+            <th>Customer</th>
+            <th>Account</th>
+            <th>File Name</th>
+            <th>Ticket #</th>
+            <th>Upload Date/Time</th>
+            <th>Load Date/Time</th>
+            <th>Data Type</th>
+            <th>File Size</th>
+            <th>Records</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="version-table-body">
+          <!-- Will be populated by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- No Results Message -->
+    <div class="no-results-message" id="no-versions-message">
+      <i class="fas fa-database fa-3x"></i>
+      <h4>No Versions Found</h4>
+      <p>Upload your first CSV file to get started.</p>
+      <button class="btn btn-primary" id="first-upload-btn">
+        <i class="fas fa-upload"></i> Upload Your First Version
+      </button>
+    </div>
+  </div>
+  
+  <!-- Pagination Controls -->
+  <div class="pagination-container" id="version-pagination">
+    <div class="pagination-info">
+      Showing <span id="pagination-start">1</span>-<span id="pagination-end">10</span> of <span id="pagination-total">0</span> versions
+    </div>
+    <div class="pagination-controls">
+      <button class="pagination-btn" id="pagination-first" disabled>
+        <i class="fas fa-angle-double-left"></i>
+      </button>
+      <button class="pagination-btn" id="pagination-prev" disabled>
+        <i class="fas fa-angle-left"></i>
+      </button>
+      <div class="pagination-pages" id="pagination-pages"></div>
+      <button class="pagination-btn" id="pagination-next" disabled>
+        <i class="fas fa-angle-right"></i>
+      </button>
+      <button class="pagination-btn" id="pagination-last" disabled>
+        <i class="fas fa-angle-double-right"></i>
+      </button>
+    </div>
+    <div class="pagination-size">
+      <label>Show:</label>
+      <select id="page-size-select" class="pagination-select">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- Version Details Modal -->
+<div id="version-details-modal-overlay" class="modal-overlay hidden">
+  <div id="version-details-modal" class="modal wide-modal">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <h3>
+          <i class="fas fa-folder"></i>
+          <span id="detail-modal-title">Version Details</span>
+        </h3>
+        <div class="version-header-badges">
+          <div class="version-badge" id="detail-modal-version-id">VER-001</div>
+          <div class="data-type-badge dedicated" id="detail-modal-data-type">Dedicated</div>
+          <div class="status-badge processed" id="detail-modal-status">✅ Processed</div>
+        </div>
+      </div>
+      <button class="modal-close-btn" id="close-details-modal">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="modal-content">
+      <!-- Tab Navigation -->
+      <div class="details-tabs">
+        <div class="tab-nav">
+          <button class="tab-btn active" data-tab="data-tab">
+            <i class="fas fa-table"></i> Data Table
+          </button>
+          <button class="tab-btn" data-tab="calculations-tab">
+            <i class="fas fa-calculator"></i> Calculation Details
+          </button>
+          <button class="tab-btn" data-tab="metadata-tab">
+            <i class="fas fa-info-circle"></i> Metadata & History
+          </button>
+        </div>
+      </div>
+      
+      <!-- Tab Content -->
+      <div class="tab-content active" id="data-tab">
+        <!-- Data View Controls -->
+        <div class="data-view-controls">
+          <div class="view-toggle-group">
+            <div class="toggle-group">
+              <span class="toggle-label">Show Comparison</span>
+              <label class="switch">
+                <input type="checkbox" id="detail-comparison-toggle">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="view-options">
+              <select id="data-view-select" class="view-select">
+                <option value="original">Original Data Only</option>
+                <option value="calculated">Calculated Data Only</option>
+                <option value="side-by-side">Side-by-Side Comparison</option>
+              </select>
+              <button class="btn btn-secondary btn-sm" id="filter-changes-btn">
+                <i class="fas fa-filter"></i> Show Only Changes
+              </button>
+            </div>
+          </div>
+          <div class="data-actions">
+            <button class="btn btn-secondary" id="download-original-btn">
+              <i class="fas fa-download"></i> Original CSV
+            </button>
+            <button class="btn btn-secondary" id="download-calculated-btn">
+              <i class="fas fa-download"></i> Calculated CSV
+            </button>
+            <button class="btn btn-primary" id="full-screen-data-btn">
+              <i class="fas fa-expand"></i> Full Screen
+            </button>
+          </div>
+        </div>
+        
+        <!-- Data Table Container -->
+        <div class="data-table-container" id="detail-data-container">
+          <!-- Data will be loaded here -->
+        </div>
+      </div>
+      
+      <div class="tab-content" id="calculations-tab">
+        <div class="calculations-content">
+          <div class="section-header">
+            <h4><i class="fas fa-calculator"></i> Applied Calculations</h4>
+            <p class="section-subtitle">Summary of all calculations applied to this version</p>
+          </div>
+          
+          <div class="calculations-list" id="calculations-list">
+            <!-- Calculations will be populated here -->
+          </div>
+          
+          <div class="calculation-stats">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+              <div class="stat-content">
+                <h5>Exchange Rate Adjustments</h5>
+                <p id="exchange-rate-count">3 currencies converted</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-calendar-alt"></i>
+              </div>
+              <div class="stat-content">
+                <h5>Holiday Adjustments</h5>
+                <p id="holiday-count">2 holidays applied</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-percentage"></i>
+              </div>
+              <div class="stat-content">
+                <h5>Tax Calculations</h5>
+                <p id="tax-count">All rows calculated</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tab-content" id="metadata-tab">
+        <div class="metadata-content">
+          <div class="metadata-grid">
+            <div class="metadata-section">
+              <h5><i class="fas fa-file-alt"></i> File Information</h5>
+              <div class="metadata-item">
+                <label>File Name:</label>
+                <span id="meta-filename">-</span>
+              </div>
+              <div class="metadata-item">
+                <label>File Size:</label>
+                <span id="meta-filesize">-</span>
+              </div>
+              <div class="metadata-item">
+                <label>Records:</label>
+                <span id="meta-recordcount">-</span>
+              </div>
+              <div class="metadata-item">
+                <label>File Format:</label>
+                <span id="meta-format">-</span>
+              </div>
+            </div>
+            
+            <div class="metadata-section">
+              <h5><i class="fas fa-building"></i> Customer Information</h5>
+              <div class="metadata-item">
+                <label>Customer:</label>
+                <span id="meta-customer">-</span>
+              </div>
+              <div class="metadata-item">
+                <label>Account:</label>
+                <span id="meta-account">-</span>
+              </div>
+              <div class="metadata-item">
+                <label>Data Type:</label>
+                <span id="meta-datatype">-</span>
+              </div>
+              <div class="metadata-item">
+                <label>Ticket #:</label>
+                <span id="meta-ticket">-</span>
+              </div>
+            </div>
+            
+            <div class="metadata-section">
+              <h5><i class="fas fa-calendar-alt"></i> Timeline</h5>
+              <div class="metadata-item">
+                <label>Upload Date:</label>
+                <span id="meta-uploaddate">-</span>
+              </div>
+              <div class="metadata-item">
+                <label>Load Date:</label>
+                <span id="meta-loaddate">-</span>
+              </div>
+              <div class="metadata-item">
+                <label>Processing Time:</label>
+                <span id="meta-processingtime">-</span>
+              </div>
+              <div class="metadata-item">
+                <label>Last Accessed:</label>
+                <span id="meta-lastaccessed">-</span>
+              </div>
+            </div>
+            
+            <div class="metadata-section">
+              <h5><i class="fas fa-cogs"></i> Processing Information</h5>
+              <div class="metadata-item">
+                <label>Processing Status:</label>
+                <span id="meta-processstatus">-</span>
+              </div>
+              <div class="metadata-item">
+                <label>Calculations Applied:</label>
+                <span id="meta-calccount">-</span>
+              </div>
+              <div class="metadata-item">
+                <label>Rows Modified:</label>
+                <span id="meta-modifiedrows">-</span>
+              </div>
+              <div class="metadata-item">
+                <label>Validation Errors:</label>
+                <span id="meta-errors">0</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="processing-log">
+            <h5><i class="fas fa-clipboard-list"></i> Processing Log</h5>
+            <div class="log-entries" id="processing-log-entries">
+              <!-- Log entries will be populated here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal-footer">
+      <div class="footer-left">
+        <button class="btn btn-primary" id="compare-version-btn">
+          <i class="fas fa-code-compare"></i> Compare with Another Version
+        </button>
+        <button class="btn btn-success" id="restore-version-btn">
+          <i class="fas fa-history"></i> Restore This Version
+        </button>
+      </div>
+      <div class="footer-right">
+        <button class="btn btn-secondary" id="close-details-btn">Close</button>
+        <button class="btn btn-danger" id="delete-version-btn">
+          <i class="fas fa-trash"></i> Delete This Version
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Compare Versions Modal -->
+<div id="compare-versions-modal-overlay" class="modal-overlay hidden">
+  <div id="compare-versions-modal" class="modal extra-wide-modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-code-compare"></i> Compare Data Versions</h3>
+      <button class="modal-close-btn" id="close-compare-modal">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="modal-content">
+      <div class="compare-controls">
+        <div class="compare-selectors">
+          <div class="compare-selector">
+            <label>Version A (Base)</label>
+            <select id="compare-version-a" class="form-control">
+              <option value="">Select Version A</option>
+              <!-- Populated dynamically -->
+            </select>
+            <div class="version-info" id="version-a-info">
+              <!-- Version info will appear here -->
+            </div>
+          </div>
+          <div class="compare-swap">
+            <button class="btn btn-secondary" id="swap-versions-btn">
+              <i class="fas fa-exchange-alt"></i> Swap
+            </button>
+          </div>
+          <div class="compare-selector">
+            <label>Version B (Compare)</label>
+            <select id="compare-version-b" class="form-control">
+              <option value="">Select Version B</option>
+              <!-- Populated dynamically -->
+            </select>
+            <div class="version-info" id="version-b-info">
+              <!-- Version info will appear here -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="compare-options">
+          <div class="options-group">
+            <label>Comparison Mode:</label>
+            <select id="compare-mode" class="form-control">
+              <option value="side-by-side">Side-by-Side View</option>
+              <option value="unified">Unified Diff View</option>
+              <option value="summary">Summary View</option>
+            </select>
+          </div>
+          <div class="options-group">
+            <label>Options:</label>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="compare-show-differences" checked>
+                <span class="checkbox-custom"></span>
+                Show only differences
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="compare-highlight-changes" checked>
+                <span class="checkbox-custom"></span>
+                Highlight changes
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="compare-ignore-formatting">
+                <span class="checkbox-custom"></span>
+                Ignore formatting
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="compare-results" id="compare-results">
+        <div class="comparison-placeholder">
+          <i class="fas fa-code-compare fa-3x"></i>
+          <p>Select two versions to compare them side by side</p>
+          <small>Both versions must be of the same data type (Dedicated or Project)</small>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal-footer">
+      <div class="footer-left">
+        <div class="comparison-stats" id="comparison-stats">
+          <!-- Stats will appear here -->
+        </div>
+      </div>
+      <div class="footer-right">
+        <button class="btn btn-secondary" id="cancel-compare">Cancel</button>
+        <button class="btn btn-primary" id="run-compare" disabled>
+          <i class="fas fa-play"></i> Run Comparison
+        </button>
+        <button class="btn btn-success" id="export-comparison" disabled>
+          <i class="fas fa-download"></i> Export Report
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Upload Version Modal -->
+<div id="upload-version-modal-overlay" class="modal-overlay hidden">
+  <div id="upload-version-modal" class="modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-upload"></i> Upload New Data Version</h3>
+      <button class="modal-close-btn" id="close-upload-modal">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="modal-content">
+      <!-- Form Steps Indicator -->
+      <div class="form-steps">
+        <div class="step active" data-step="1">
+          <div class="step-number">1</div>
+          <div class="step-label">Basic Info</div>
+        </div>
+        <div class="step" data-step="2">
+          <div class="step-number">2</div>
+          <div class="step-label">Upload File</div>
+        </div>
+        <div class="step" data-step="3">
+          <div class="step-number">3</div>
+          <div class="step-label">Review</div>
+        </div>
+      </div>
+      
+      <!-- Step 1: Basic Information -->
+      <div class="form-step active" id="step-1">
+        <div class="upload-form-group">
+          <label for="upload-customer">Customer <span class="required">*</span></label>
+          <select id="upload-customer" class="form-control" required>
+            <option value="">Select Customer</option>
+            <option value="HCL">HCL</option>
+            <option value="Acme Corp">Acme Corp</option>
+            <option value="Tech Solutions">Tech Solutions</option>
+            <option value="Global Innovations">Global Innovations</option>
+          </select>
+        </div>
+        
+        <div class="upload-form-group">
+          <label for="upload-account">Account <span class="required">*</span></label>
+          <select id="upload-account" class="form-control" required>
+            <option value="">Select Account</option>
+            <option value="HCL_ABBVIE">HCL_ABBVIE</option>
+            <option value="HCL_ABBVIE_DSS">HCL_ABBVIE_DSS</option>
+            <option value="ACME_PROJECTS">ACME_PROJECTS</option>
+            <option value="TECH_SUPPORT">TECH_SUPPORT</option>
+            <option value="GLOBAL_INNOVATIONS_RND">GLOBAL_INNOVATIONS_RND</option>
+          </select>
+        </div>
+        
+        <div class="upload-form-group">
+          <label for="upload-data-type">Data Type <span class="required">*</span></label>
+          <select id="upload-data-type" class="form-control" required>
+            <option value="">Select Data Type</option>
+            <option value="Dedicated">Dedicated</option>
+            <option value="Project">Project</option>
+          </select>
+        </div>
+        
+        <div class="upload-form-group">
+          <label for="upload-ticket">Ticket Number (Optional)</label>
+          <input type="text" id="upload-ticket" class="form-control" placeholder="e.g., TKT-12345, SR-789">
+        </div>
+        
+        <div class="upload-form-group">
+          <label for="upload-description">Description (Optional)</label>
+          <textarea id="upload-description" class="form-control" 
+                    rows="3" placeholder="Brief description of this version..."></textarea>
+        </div>
+      </div>
+      
+      <!-- Step 2: File Upload -->
+      <div class="form-step" id="step-2">
+        <div class="upload-form-group">
+          <label for="upload-file">Upload CSV File <span class="required">*</span></label>
+          <div class="file-upload-area" id="file-upload-area">
+            <i class="fas fa-file-csv fa-3x"></i>
+            <p>Drag & drop your CSV file here or click to browse</p>
+            <p class="file-types">Maximum file size: 10MB</p>
+            <input type="file" id="upload-file" accept=".csv" hidden>
+            <button class="btn btn-secondary" id="browse-file-btn">
+              <i class="fas fa-folder-open"></i> Browse Files
+            </button>
+            <div class="file-info" id="file-info">
+              <!-- File info will appear here -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="file-validation" id="file-validation">
+          <h5><i class="fas fa-clipboard-check"></i> File Validation</h5>
+          <div class="validation-checks">
+            <div class="validation-item" id="val-format">
+              <i class="fas fa-check-circle"></i>
+              <span>CSV Format</span>
+            </div>
+            <div class="validation-item" id="val-size">
+              <i class="fas fa-check-circle"></i>
+              <span>File Size (≤10MB)</span>
+            </div>
+            <div class="validation-item" id="val-headers">
+              <i class="fas fa-question-circle"></i>
+              <span>Required Headers</span>
+            </div>
+            <div class="validation-item" id="val-data">
+              <i class="fas fa-question-circle"></i>
+              <span>Data Integrity</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 3: Review & Confirm -->
+      <div class="form-step" id="step-3">
+        <div class="review-summary">
+          <h5><i class="fas fa-clipboard-list"></i> Upload Summary</h5>
+          <div class="summary-grid">
+            <div class="summary-item">
+              <label>Customer:</label>
+              <span id="review-customer">-</span>
+            </div>
+            <div class="summary-item">
+              <label>Account:</label>
+              <span id="review-account">-</span>
+            </div>
+            <div class="summary-item">
+              <label>Data Type:</label>
+              <span id="review-datatype">-</span>
+            </div>
+            <div class="summary-item">
+              <label>Ticket #:</label>
+              <span id="review-ticket">-</span>
+            </div>
+            <div class="summary-item">
+              <label>File Name:</label>
+              <span id="review-filename">-</span>
+            </div>
+            <div class="summary-item">
+              <label>File Size:</label>
+              <span id="review-filesize">-</span>
+            </div>
+            <div class="summary-item">
+              <label>Records:</label>
+              <span id="review-recordcount">-</span>
+            </div>
+            <div class="summary-item full-width">
+              <label>Description:</label>
+              <span id="review-description">-</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="data-preview" id="data-preview">
+          <h5><i class="fas fa-eye"></i> Data Preview (First 5 rows)</h5>
+          <div class="preview-table-container">
+            <!-- Preview table will be loaded here -->
+          </div>
+        </div>
+      </div>
+      
+      <!-- Processing Step (Hidden) -->
+      <div class="form-step" id="step-processing">
+        <div class="processing-indicator">
+          <div class="spinner"></div>
+          <h4>Processing Upload</h4>
+          <p id="processing-message">Validating and processing your file...</p>
+          <div class="progress-bar">
+            <div class="progress-fill" id="upload-progress"></div>
+          </div>
+          <div class="processing-details" id="processing-details">
+            <!-- Processing details will appear here -->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal-footer">
+      <div class="footer-left">
+        <button class="btn btn-secondary" id="prev-step-btn" disabled>
+          <i class="fas fa-arrow-left"></i> Previous
+        </button>
+      </div>
+      <div class="footer-right">
+        <button class="btn btn-secondary" id="cancel-upload">Cancel</button>
+        <button class="btn btn-primary" id="next-step-btn">
+          Next <i class="fas fa-arrow-right"></i>
+        </button>
+        <button class="btn btn-success" id="confirm-upload" disabled>
+          <i class="fas fa-upload"></i> Upload Version
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div id="delete-version-modal-overlay" class="modal-overlay hidden">
+  <div id="delete-version-modal" class="modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-exclamation-triangle"></i> Confirm Deletion</h3>
+      <button class="modal-close-btn" id="close-delete-modal">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="modal-content">
+      <div class="warning-message">
+        <i class="fas fa-trash-alt fa-3x"></i>
+        <h4>Are you sure you want to delete this version?</h4>
+        <div class="delete-details">
+          <p><strong>Version:</strong> <span id="delete-version-id">VER-001</span></p>
+          <p><strong>File:</strong> <span id="delete-filename">example.csv</span></p>
+          <p><strong>Customer:</strong> <span id="delete-customer">HCL</span></p>
+          <p><strong>Records:</strong> <span id="delete-record-count">0</span> records</p>
+          <p><strong>Upload Date:</strong> <span id="delete-upload-date">-</span></p>
+        </div>
+        <div class="warning-box">
+          <i class="fas fa-exclamation-circle"></i>
+          <p>This action cannot be undone. All data associated with this version will be permanently deleted.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal-footer">
+      <button class="btn btn-secondary" id="cancel-delete">Cancel</button>
+      <button class="btn btn-danger" id="confirm-delete">
+        <i class="fas fa-trash"></i> Delete Permanently
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 
+<div id="upload-success-notification" class="notification hidden">
+  <div class="notification-content success">
+    <i class="fas fa-check-circle"></i>
+    <div class="notification-text">
+      <h5>Version Uploaded Successfully!</h5>
+      <p>Version <strong id="success-version-id">VER-001</strong> has been uploaded and processed.</p>
+    </div>
+    <button class="notification-close" id="close-notification">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+</div> -->
+
+      <!-- Analytics Tab -->
+      <div class="modal-tab-content" id="analytics-tab-content">
+        <div class="tab-content-header">
+          <h3><i class="fas fa-chart-bar"></i> Analytics & Reports</h3>
+          <div class="tab-controls-group">
+            <select id="analytics-period-select" class="filter-select-input">
+              <option value="monthly">Monthly</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="yearly">Yearly</option>
+            </select>
+            
+            <select id="analytics-metric-select" class="filter-select-input">
+              <option value="cost">Cost Analysis</option>
+              <option value="utilization">Utilization</option>
+              <option value="holidays">Holiday Impact</option>
+              <option value="productivity">Productivity</option>
+            </select>
+            
+            <div class="action-buttons">
+              <button class="btn btn-primary" id="analytics-refresh-btn">
+                <i class="fas fa-redo"></i> Refresh
+              </button>
+              <button class="btn btn-success" id="analytics-export-btn">
+                <i class="fas fa-download"></i> Export Report
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Analytics Dashboard -->
+        <div class="analytics-dashboard">
+          <div class="chart-row">
+            <div class="chart-container">
+              <canvas id="cost-analysis-chart"></canvas>
+            </div>
+            <div class="chart-container">
+              <canvas id="utilization-chart"></canvas>
+            </div>
+          </div>
+          
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-header">
+                <i class="fas fa-money-bill-wave"></i>
+                <h4>Total Monthly Cost</h4>
+              </div>
+              <div class="metric-value" id="analytics-total-cost">€40,700.00</div>
+              <div class="metric-trend up">
+                <i class="fas fa-arrow-up"></i>
+                <span>12% from last month</span>
+              </div>
+            </div>
+            
+            <div class="metric-card">
+              <div class="metric-header">
+                <i class="fas fa-calendar-check"></i>
+                <h4>Average Utilization</h4>
+              </div>
+              <div class="metric-value" id="analytics-avg-utilization">92%</div>
+              <div class="metric-trend up">
+                <i class="fas fa-arrow-up"></i>
+                <span>3% from last month</span>
+              </div>
+            </div>
+            
+            <div class="metric-card">
+              <div class="metric-header">
+                <i class="fas fa-umbrella-beach"></i>
+                <h4>Holiday Impact</h4>
+              </div>
+              <div class="metric-value" id="analytics-holiday-impact">€1,150.00</div>
+              <div class="metric-trend neutral">
+                <i class="fas fa-minus"></i>
+                <span>No change</span>
+              </div>
+            </div>
+            
+            <div class="metric-card">
+              <div class="metric-header">
+                <i class="fas fa-clock"></i>
+                <h4>OT Cost</h4>
+              </div>
+              <div class="metric-value" id="analytics-ot-cost">€425.00</div>
+              <div class="metric-trend up">
+                <i class="fas fa-arrow-up"></i>
+                <span>8% from last month</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Summary Tab -->
+      <div class="modal-tab-content" id="ai-summary-tab-content">
+        <div class="tab-content-header">
+          <h3><i class="fas fa-robot"></i> AI Assistant & Validation Summary</h3>
+          <div class="tab-controls-group">
+            <button class="btn btn-primary" id="ai-analyze-btn">
+              <i class="fas fa-brain"></i> Analyze Data
+            </button>
+            <button class="btn btn-success" id="ai-validate-btn">
+              <i class="fas fa-check-double"></i> Run Full Validation
+            </button>
+            <button class="btn btn-warning" id="ai-fix-issues-btn">
+              <i class="fas fa-magic"></i> Fix Issues
+            </button>
+          </div>
+        </div>
+        
+        <!-- AI Chat -->
+        <div class="ai-chat-container">
+          <div class="ai-messages-container" id="ai-messages-container">
+            <div class="ai-message ai-bot-message">
+              <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="message-content">
+                <div class="message-text">
+                  Hello! I'm your Band Details AI Assistant. I can help you:
+                  <ul>
+                    <li>Validate calculations and data consistency</li>
+                    <li>Identify anomalies and issues</li>
+                    <li>Generate summaries and reports</li>
+                    <li>Update information based on your instructions</li>
+                  </ul>
+                  How can I assist you today?
+                </div>
+                <div class="message-time">Just now</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="ai-input-container">
+            <div class="ai-quick-actions">
+              <button class="quick-action-btn" data-action="validate">
+                <i class="fas fa-check-circle"></i> Validate All
+              </button>
+              <button class="quick-action-btn" data-action="summary">
+                <i class="fas fa-file-alt"></i> Get Summary
+              </button>
+              <button class="quick-action-btn" data-action="issues">
+                <i class="fas fa-exclamation-triangle"></i> Find Issues
+              </button>
+              <button class="quick-action-btn" data-action="suggest">
+                <i class="fas fa-lightbulb"></i> Suggestions
+              </button>
+            </div>
+            
+            <div class="ai-input-wrapper">
+              <input type="text" id="ai-input-field" placeholder="Ask me anything about your band details, calculations, or data...">
+              <button class="ai-send-button" id="ai-send-button">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- AI Summary Panel -->
+        <div class="ai-summary-panel">
+          <div class="summary-section">
+            <h4><i class="fas fa-clipboard-check"></i> Validation Results</h4>
+            <div class="validation-results" id="validation-results-container">
+              <!-- Validation results shown here -->
+            </div>
+          </div>
+          
+          <div class="summary-section">
+            <h4><i class="fas fa-chart-line"></i> Key Insights</h4>
+            <div class="insights-list" id="insights-list-container">
+              <!-- AI insights shown here -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Tab -->
+      <div class="modal-tab-content" id="settings-tab-content">
+        <div class="tab-content-header">
+          <h3><i class="fas fa-cog"></i> System Configuration</h3>
+          <div class="tab-controls-group">
+            <button class="btn btn-success" id="settings-save-btn">
+              <i class="fas fa-save"></i> Save Settings
+            </button>
+            <button class="btn btn-secondary" id="settings-reset-btn">
+              <i class="fas fa-undo"></i> Reset to Defaults
+            </button>
+            <button class="btn btn-primary" id="settings-test-btn">
+              <i class="fas fa-vial"></i> Test Calculations
+            </button>
+          </div>
+        </div>
+        
+        <!-- Settings Grid -->
+        <div class="settings-grid-container">
+          <div class="settings-card">
+            <h4><i class="fas fa-calendar-alt"></i> Working Days Configuration</h4>
+            
+            <div class="settings-group">
+              <label for="default-working-days">Default Working Days per Month</label>
+              <select id="default-working-days" class="settings-input">
+                <option value="20">20 Days</option>
+                <option value="21">21 Days</option>
+                <option value="22" selected>22 Days</option>
+                <option value="23">23 Days</option>
+              </select>
+            </div>
+            
+            <div class="settings-group">
+              <label>Holiday Deduction Method</label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="holiday-full" name="holiday-method" value="full" checked>
+                  <label for="holiday-full">Full Day</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="holiday-half" name="holiday-method" value="half">
+                  <label for="holiday-half">Half Day</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="holiday-pro" name="holiday-method" value="pro">
+                  <label for="holiday-pro">Pro-rated</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="settings-group">
+              <label>Weekend Days</label>
+              <div class="checkbox-group">
+                <label class="checkbox-option">
+                  <input type="checkbox" id="saturday-weekend" checked>
+                  Saturday
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" id="sunday-weekend" checked>
+                  Sunday
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-card">
+            <h4><i class="fas fa-money-bill-wave"></i> Currency Settings</h4>
+            
+            <div class="settings-group">
+              <label for="base-currency">Base Currency</label>
+              <select id="base-currency" class="settings-input">
+                <option value="EUR" selected>EUR - Euro</option>
+                <option value="USD">USD - US Dollar</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="AED">AED - UAE Dirham</option>
+                <option value="AUD">AUD - Australian Dollar</option>
+              </select>
+            </div>
+            
+            <div class="settings-group">
+              <label for="exchange-rate-source">Exchange Rate Source</label>
+              <select id="exchange-rate-source" class="settings-input">
+                <option value="ecb">European Central Bank</option>
+                <option value="manual">Manual Input</option>
+                <option value="custom">Custom API</option>
+              </select>
+            </div>
+            
+            <div class="settings-group">
+              <label for="auto-update-rates">Auto-update Frequency</label>
+              <select id="auto-update-rates" class="settings-input">
+                <option value="daily">Daily</option>
+                <option value="weekly" selected>Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="manual">Manual Only</option>
+              </select>
+            </div>
+            
+            <div class="checkbox-group">
+              <input type="checkbox" id="auto-fetch-rates" checked>
+              <label for="auto-fetch-rates">Auto-fetch exchange rates</label>
+            </div>
+          </div>
+          
+          <div class="settings-card">
+            <h4><i class="fas fa-calculator"></i> Calculation Rules</h4>
+            
+            <div class="settings-group">
+              <label for="penalty-percentage">Penalty for Unworked Days (%)</label>
+              <input type="number" id="penalty-percentage" class="settings-input" value="10" min="0" max="100" step="5">
+            </div>
+            
+            <div class="settings-group">
+              <label for="sla-bonus">SLA 100% Bonus (%)</label>
+              <input type="number" id="sla-bonus" class="settings-input" value="2" min="0" max="20" step="0.5">
+            </div>
+            
+            <div class="settings-group">
+              <label for="ot-multiplier">Overtime Multiplier</label>
+              <input type="number" id="ot-multiplier" class="settings-input" value="1.5" min="1" max="3" step="0.1">
+            </div>
+            
+            <div class="checkbox-group">
+              <input type="checkbox" id="apply-backfill-rules" checked>
+              <label for="apply-backfill-rules">Apply backfill rules automatically</label>
+            </div>
+          </div>
+          
+          <div class="settings-card">
+            <h4><i class="fas fa-umbrella-beach"></i> Holiday Management</h4>
+            
+            <div class="settings-group">
+              <label for="holiday-calendar">Holiday Calendar</label>
+              <select id="holiday-calendar" class="settings-input">
+                <option value="global">Global Calendar</option>
+                <option value="country" selected>Country-specific</option>
+                <option value="customer">Customer-specific</option>
+              </select>
+            </div>
+            
+            <div class="settings-group">
+              <label for="holiday-sync">Sync with Public Holidays</label>
+              <select id="holiday-sync" class="settings-input">
+                <option value="none">Don't Sync</option>
+                <option value="country">Country Holidays</option>
+                <option value="global">Global Holidays</option>
+                <option value="custom">Custom API</option>
+              </select>
+            </div>
+            
+            <div class="settings-group">
+              <label for="holiday-adjustment">Holiday Adjustment Rule</label>
+              <select id="holiday-adjustment" class="settings-input">
+                <option value="shift">Shift to next working day</option>
+                <option value="deduct">Deduct from month</option>
+                <option value="ignore" selected>No adjustment</option>
+                <option value="pro_rate">Pro-rate daily rate</option>
+              </select>
+            </div>
+            
+            <div class="checkbox-group">
+              <input type="checkbox" id="auto-adjust-working-days" checked>
+              <label for="auto-adjust-working-days">Auto-adjust working days for holidays</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  END STEP 3 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  STEP 4 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+  <div class="step-content" id="step-content-4">
+    
+  </div>
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  END STEP 4 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  STEP 5 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+  <div class="step-content" id="step-content-5">
+    
+  </div>
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  END STEP 5 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  STEP 6 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+  <div class="step-content" id="step-content-6">
+    
+  </div>
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  END STEP 6 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  STEP 7 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+  <div class="step-content" id="step-content-7">
+    
+  </div>
+  <!---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  END STEP 7 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+</div>
+
+    </div>
+
+
+    <!-- Band Details Sliding Panel -->
+<link rel="stylesheet" href="./style/Band_Feature.css">
+<script src="./Function/Band_features (step3).js" defer></script>
+
+<!-- Overlay -->
+<div class="tmm-band-overlay" id="tmmBandOverlay" onclick="tmmCloseBandDetailsPanel()"></div>
+
+<!-- Band Details Panel -->
+<div class="tmm-band-details-panel" id="tmmBandDetailsPanel">
+
+  <!-- HEADER -->
+  <div class="tmm-band-panel-header">
+    <div class="tmm-band-panel-title">
+      <i class="fas fa-layer-group"></i>
+      <h2>Band Details Management</h2>
+    </div>
+    <button class="tmm-band-panel-close" type="button" onclick="tmmCloseBandDetailsPanel()">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="tmm-band-panel-content" id="tmmBandPanelContent">
+    <div class="tmm-band-loading">
+      <i class="fas fa-spinner fa-spin"></i>
+      <p>Loading band details...</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="tmm-band-panel-footer">
+    <button class="tmm-btn-band-action tmm-btn-band-save" type="button" onclick="tmmSaveBandDetails()">
+      <i class="fas fa-save"></i> Save Changes
+    </button>
+    <button class="tmm-btn-band-action tmm-btn-band-export" type="button" onclick="tmmExportBandDetails()">
+      <i class="fas fa-download"></i> Export
+    </button>
+    <button class="tmm-btn-band-action tmm-btn-band-cancel" type="button" onclick="tmmCloseBandDetailsPanel()">
+      <i class="fas fa-times"></i> Cancel
+    </button>
+  </div>
+
+</div>
+
+  </div>
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+
+        <!--**********************************
+    Footer start
+***********************************-->
+        
+
+
+
+
+
+
+        <!--**********************************
+    Footer end
+***********************************-->
+
+    </div>
+    <script src="../public/assets/vendor/global/global.min.js"></script>
+    <script src="../public/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="./Function/Band_Details_Settings.js"></script>
+    <script src="./Function/Band_Details_OverviewTab.js"></script>
+    <script src="./Function/Band_Details_DedicatedTab.js"></script>
+    <script src="./Function/Band_Details_ProjectTab.js"></script>
+    <script src="./Function/Band_Details_CalendarTab.js"></script>
+    <script src="./Function/Band_Details_VersionTab.js"></script>
+
+
+
+    <script src="../public/assets/js/dlabnav-init.js"></script>
+    <script src="../public/assets/js/custom.min.js"></script>
+    <script src="../public/assets/js/demo.js"></script>
+    <script src="../public/assets/js/styleSwitcher.js"></script>
+    <script defer src="./Function/Ticket_matching_matrix.js"></script>
+    <script defer src="./Function/Ticket_matching_matrix_control.js"></script>
+    <script src="./Function/Function_TestData.js"></script>
+
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+</body>
+
+</html>
